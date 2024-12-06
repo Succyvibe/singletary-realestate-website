@@ -7,23 +7,49 @@ import ideas from "../assets/images/ideas.jpg";
 <template>
   <div>
     <div
-      class="h-[60vh] lg:h-[100vh] relative py-12 bg-[url('https://cdn.pixabay.com/photo/2015/10/20/18/57/furniture-998265_1280.jpg')] bg-cover bg-center bg-no-repeat"
+      class="h-[100vh] relative py-12 bg-[url('https://cdn.pixabay.com/photo/2015/10/20/18/57/furniture-998265_1280.jpg')] bg-cover bg-center bg-no-repeat"
     >
       <div class="absolute top-0 left-0 w-full h-full z-10 bg-black/50"></div>
       <main class="h-full absolute top-0 left-0 w-full z-20">
         <div
-          class="h-full w-[85%] lg:w-[70%] mx-auto flex-col lg:flex-row flex items-center gap-12"
+          class="h-full w-[85%] lg:w-[70%] mx-auto flex-col justify-center lg:justify-start lg:flex-row flex items-center gap-12"
         >
-          <div class="flex flex-col gap-4 text-white pt-20">
-            <h3 class="italic text-xl">Welcome to Singletary Real Group</h3>
-            <h2 class="text-lg lg:text-4xl">Let's find your dream home</h2>
-            <h1 class="text-2xl lg:text-6xl font-bold">Manage Your Property</h1>
-            <p class="text-sm lg:text-lg">
-              We have Brokered more than 120+ apartments and houses
-              Rental/Purchases in New york, New Jersey , <br />
-              Brooklyn and other states in the United States
-            </p>
+          <div>
+            <div class="flex flex-col gap-4 text-white pt-20">
+              <h3 class="italic text-xl relative">
+                Welcome to Singletary Real Group
+                <!-- <span class="absolute -top-2 right-0"
+                  ><i class="fa-regular fa-registered text-white font-bold"></i
+                ></span> -->
+              </h3>
+              <h2 class="text-lg lg:text-4xl">Let's find your dream home</h2>
+              <h1 class="text-2xl lg:text-6xl font-bold">
+                Manage Your Property
+              </h1>
+              <p class="text-sm lg:text-lg">
+                We have Brokered more than 120+ apartments and houses
+                Rental/Purchases in New york, New Jersey , <br />
+                Brooklyn and other states in the United States
+              </p>
+            </div>
+
+            <div>
+              <div class="pt-4 flex items-center">
+                <button
+                  class="bg-green-600 text-white px-6 py-2 rounded-3xl mr-2 hover:bg-green-700 transition ease-linear"
+                >
+                  Contact Now!
+                </button>
+                <div>
+                  <span class="text-black hidden lg:inline">OR</span>
+                  <span class="text-white pl-3 font-semibold cursor-pointer"
+                    >Call:+18143849233</span
+                  >
+                </div>
+              </div>
+            </div>
           </div>
+
           <!-- <div class="lg:w-[50%]">
             <img
               :src="heroImage"
@@ -33,6 +59,69 @@ import ideas from "../assets/images/ideas.jpg";
           </div> -->
         </div>
       </main>
+    </div>
+    <div
+      class="w-[350px] h-[260px] rounded-md bg-white fixed bottom-28 right-10 z-50 hidden"
+    >
+      <div class="bg-green-600">
+        <div class="p-3 flex items-center gap-3">
+          <div>
+            <i class="fa-brands fa-whatsapp text-white text-3xl"></i>
+          </div>
+          <div>
+            <h4 class="text-white font-semibold text-lg">
+              Start A Conversation
+            </h4>
+            <p class="text-xs text-white">
+              Hi! Click one of our member below to chat on
+              <span class="text-sm font-bold">Whatsapp</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-3">
+        <div class="py-2">
+          <p class="text-xs text-[#333]">
+            The team typically replies in a few minutes
+          </p>
+        </div>
+        <div class="border-l-2 border-green-500 bg-slate-100 px-2 py-3">
+          <div class="flex justify-between">
+            <div class="flex items-center gap-2">
+              <div class="w-10 h-10 rounded-full">
+                <img
+                  src="/src/assets/images/mehul_patel.jpeg"
+                  alt=""
+                  class="w-full h-full rounded-full object-cover"
+                />
+              </div>
+              <div>
+                <p class="text-sm font-bold">Donnell Kedrick</p>
+                <p class="text-xs">Customer experience Officer</p>
+              </div>
+            </div>
+            <div>
+              <i class="fa-brands fa-whatsapp text-green-500 text-3xl"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="fixed bottom-10 right-10 z-50">
+      <div>
+        <div class="flex items-center gap-2">
+          <a class="rounded-lg bg-white px-4 py-2 text-black hidden lg:block">
+            Need Help? Chat With Us
+          </a>
+          <a
+            class="w-14 h-14 rounded-full bg-green-600 flex items-center justify-center"
+          >
+            <i class="fa-brands fa-whatsapp text-white text-3xl"></i>
+            <i class="fa-solid fa-xmark text-white text-2xl hidden"></i>
+          </a>
+        </div>
+      </div>
     </div>
     <section class="py-10 lg:py-16">
       <div class="w-[85%] lg:w-[70%] mx-auto">

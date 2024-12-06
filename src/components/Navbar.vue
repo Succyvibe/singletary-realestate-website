@@ -51,20 +51,20 @@ function MenuOpen() {
           :class="[open ? 'left-0' : 'left-[-250px]']"
           class="duration-700 ease-in z-10 absolute top-0 left-0 w-[250px] h-[100vh] bg-black text-white flex items-center justify-center flex-col lg:hidden"
         >
-          <li class="mt-10">
+          <li class="mt-10" @click="MenuOpen()">
             <RouterLink class="hover:border-b-2" to="/">Home</RouterLink>
           </li>
-          <li class="mt-10">
+          <li class="mt-10" @click="MenuOpen()">
             <RouterLink class="hover:border-b-2" to="/about"
               >About Us</RouterLink
             >
           </li>
-          <li class="mt-10">
+          <li class="mt-10" @click="MenuOpen()">
             <RouterLink class="hover:border-b-2" to="/application"
               >Application</RouterLink
             >
           </li>
-          <li class="mt-10">
+          <li class="mt-10" @click="MenuOpen()">
             <RouterLink class="hover:border-b-2" to="/agents"
               >Singletary Agents</RouterLink
             >
@@ -73,7 +73,7 @@ function MenuOpen() {
           <div class="absolute bottom-4 left-0 w-full px-4">
             <RouterLink
               to="/application"
-              class="w-full bg-white rounded-full px-10 py-3 text-black"
+              class="w-full bg-white rounded-full lg:px-10 px-20 py-3 text-black"
             >
               Apply
             </RouterLink>

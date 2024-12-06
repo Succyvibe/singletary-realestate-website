@@ -46,7 +46,7 @@
         <h4 class="pb-10">Contact</h4>
         <div>Email: <span>Singletaryrealtyny@gmail.com</span></div>
         <div>Customer Care Whatsapp 24/7: <span>+1(814) 384-9233</span></div>
-        <p>633 W 207th St, New York, NY 10034,United States</p>
+        <p>667 Madison Ave,New York, NY 10065, United States</p>
       </div>
     </div>
     <!-- <p class="">All Rights Reserved | New Heights Realty Group 2024</p> -->
