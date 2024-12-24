@@ -2,12 +2,15 @@
 import heroImage from "../assets/images/heroImage.jpg";
 import houseImage from "../assets/images/house4sale.jpg";
 import ideas from "../assets/images/ideas.jpg";
+
+const image =
+  "https://cdn.pixabay.com/photo/2016/11/29/06/22/buildings-1867772_960_720.jpg";
 </script>
 
 <template>
   <div>
     <div
-      class="h-[100vh] relative py-12 bg-[url('https://cdn.pixabay.com/photo/2015/10/20/18/57/furniture-998265_1280.jpg')] bg-cover bg-center bg-no-repeat"
+      class="h-[100vh] relative py-12 bg-[url('https://cdn.pixabay.com/photo/2016/11/29/06/22/buildings-1867772_960_720.jpg')] bg-cover bg-center bg-no-repeat"
     >
       <div class="absolute top-0 left-0 w-full h-full z-10 bg-black/50"></div>
       <main class="h-full absolute top-0 left-0 w-full z-20">
@@ -35,17 +38,12 @@ import ideas from "../assets/images/ideas.jpg";
 
             <div>
               <div class="pt-4 flex items-center">
-                <button
+                <a
+                  href=""
                   class="bg-green-600 text-white px-6 py-2 rounded-3xl mr-2 hover:bg-green-700 transition ease-linear"
                 >
-                  Contact Now!
-                </button>
-                <div>
-                  <span class="text-black hidden lg:inline">OR</span>
-                  <span class="text-white pl-3 font-semibold cursor-pointer"
-                    >Call:+18143849233</span
-                  >
-                </div>
+                  Send An Email
+                </a>
               </div>
             </div>
           </div>

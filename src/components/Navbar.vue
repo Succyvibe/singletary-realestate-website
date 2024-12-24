@@ -3,6 +3,27 @@ import { ref } from "vue";
 import { RouterLink } from "vue-router";
 import Button from "./Button.vue";
 
+const images = [
+  {
+    src: "https://cdn.pixabay.com/photo/2016/11/29/06/22/buildings-1867772_960_720.jpg",
+    alt: "Image 1",
+  },
+
+  {
+    src: "https://petapixel.com/assets/uploads/2022/12/image13-1-800x536.jpg",
+    alt: "Image 2",
+  },
+  {
+    src: "https://petapixel.com/assets/uploads/2022/12/image11-1-800x534.jpg",
+    alt: "Image 3",
+  },
+
+  {
+    src: "https://petapixel.com/assets/uploads/2022/12/what-is-unsplash-800x420.jpg",
+    alt: "Image 1",
+  },
+];
+
 let open = ref(false);
 
 function MenuOpen() {
@@ -12,7 +33,7 @@ function MenuOpen() {
 
 <template>
   <div>
-    <header class="bg-[#7b7c3e] py-4 fixed top-0 left-0 w-full z-40">
+    <header class="py-4 fixed top-0 left-0 w-full z-40">
       <nav
         class="w-[85%] lg:w-[70%] mx-auto text-white flex justify-between items-center"
       >
