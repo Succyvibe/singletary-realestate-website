@@ -1,976 +1,1006 @@
-<template>
-  <section class="mt-20">
-    <div>
-      <div class="w-[85%] lg:w-[70%] mx-auto py-10">
-        <div class="text-center">
-          <h2 class="text-black text-5xl">Application</h2>
-          <p class="text-[#00000080] text-lg my-6">
-            N/B There’s a compulsory refundable application fee of $200 which
-            covers for tour expenses and it’s completely refundable whether you
-            secure the apartment or not. Do not believe any agent/realtor who
-            states otherwise. We will not be held accountable for any additional
-            charge by Agents/Landlords in the course of this transaction
-          </p>
-        </div>
-        <div class="mb-20">
-          <form @submit.prevent="submitForm" class="flex flex-col gap-6">
-            <div class="grid lg:grid-cols-2 gap-6">
-              <div class="flex flex-col gap-2">
-                <label for="firstName">First Name</label>
-                <input
-                  type="text"
-                  placeholder="First Name"
-                  v-model="firstName"
-                  class="border rounded-lg py-2 px-6"
-                />
-              </div>
-              <div class="flex flex-col gap-2">
-                <label for="firstName">Last Name</label>
-                <input
-                  type="text"
-                  placeholder="Last Name"
-                  v-model="lastName"
-                  class="border rounded-lg py-2 px-6"
-                />
-              </div>
-            </div>
-            <div class="flex flex-col gap-2">
-              <label for="DOB">Date of birth</label>
-              <input
-                type="date"
-                v-model="dob"
-                placeholder=""
-                class="border rounded-lg py-2 px-6"
-              />
-            </div>
-            <div>
-              <p>Current Address</p>
-              <!-- <div class="grid lg:grid-cols-2 gap-6">
-                <div class="flex flex-col gap-2">
-                  <label for="address">Address</label>
-                  <input
-                    type="text"
-                    v-model="address"
-                    placeholder="Address"
-                    class="border rounded-lg py-2 px-6"
-                  />
-                </div>
-                <div class="flex flex-col gap-2">
-                  <label for="City">City</label>
-                  <input
-                    type="text"
-                    v-model="city"
-                    placeholder="City"
-                    class="border rounded-lg py-2 px-6"
-                  />
-                </div>
-              </div> -->
-            </div>
-            <!-- <div class="grid lg:grid-cols-2 gap-6">
-              <div class="flex flex-col gap-2">
-                <label for="state">State</label>
-                <input
-                  type="text"
-                  v-model="state"
-                  placeholder="State"
-                  class="border rounded-lg py-2 px-6"
-                />
-              </div>
-              <div class="flex flex-col gap-2">
-                <label for="Zip">Zip Code</label>
-                <input
-                  type="text"
-                  v-model="zipCode"
-                  placeholder="Zip Code"
-                  class="border rounded-lg py-2 px-6"
-                />
-              </div>
-            </div> -->
-            <!-- 
-            <div class="flex flex-col gap-2">
-              <label for="country">Country</label>
-              <input
-                type="country"
-                v-model="country"
-                required
-                placeholder="country"
-                class="border rounded-lg py-2 px-6"
-              />
-            </div> -->
-            <!-- 
-            <div class="flex flex-col gap-2">
-              <label for="DOB">Social Security - Optional</label>
-              <input
-                type="number"
-                v-model="SSN"
-                placeholder="SSN"
-                class="border rounded-lg py-2 px-6"
-              />
-            </div> -->
-            <div class="flex flex-col gap-2">
-              <!-- <label for="DOB">Cell Number</label>
-              <input
-                type=" number"
-                v-model="number"
-                required
-                placeholder="Mobile Number"
-                class="border rounded-lg py-2 px-6"
-              /> -->
-
-              <!-- <div class="flex items-center">
-                <button
-                  id="dropdown-phone-button"
-                  data-dropdown-toggle="dropdown-phone"
-                  class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-s-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600"
-                  type="number"
-                >
-                  <svg
-                    fill="none"
-                    aria-hidden="true"
-                    class="h-4 w-4 me-2"
-                    viewBox="0 0 20 15"
-                  >
-                    <rect width="19.6" height="14" y=".5" fill="#fff" rx="2" />
-                    <mask
-                      id="a"
-                      style="mask-type: luminance"
-                      width="20"
-                      height="15"
-                      x="0"
-                      y="0"
-                      maskUnits="userSpaceOnUse"
-                    >
-                      <rect
-                        width="19.6"
-                        height="14"
-                        y=".5"
-                        fill="#fff"
-                        rx="2"
-                      />
-                    </mask>
-                    <g mask="url(#a)">
-                      <path
-                        fill="#D02F44"
-                        fill-rule="evenodd"
-                        d="M19.6.5H0v.933h19.6V.5zm0 1.867H0V3.3h19.6v-.933zM0 4.233h19.6v.934H0v-.934zM19.6 6.1H0v.933h19.6V6.1zM0 7.967h19.6V8.9H0v-.933zm19.6 1.866H0v.934h19.6v-.934zM0 11.7h19.6v.933H0V11.7zm19.6 1.867H0v.933h19.6v-.933z"
-                        clip-rule="evenodd"
-                      />
-                      <path fill="#46467F" d="M0 .5h8.4v6.533H0z" />
-                      <g filter="url(#filter0_d_343_121520)">
-                        <path
-                          fill="url(#paint0_linear_343_121520)"
-                          fill-rule="evenodd"
-                          d="M1.867 1.9a.467.467 0 11-.934 0 .467.467 0 01.934 0zm1.866 0a.467.467 0 11-.933 0 .467.467 0 01.933 0zm1.4.467a.467.467 0 100-.934.467.467 0 000 .934zM7.467 1.9a.467.467 0 11-.934 0 .467.467 0 01.934 0zM2.333 3.3a.467.467 0 100-.933.467.467 0 000 .933zm2.334-.467a.467.467 0 11-.934 0 .467.467 0 01.934 0zm1.4.467a.467.467 0 100-.933.467.467 0 000 .933zm1.4.467a.467.467 0 11-.934 0 .467.467 0 01.934 0zm-2.334.466a.467.467 0 100-.933.467.467 0 000 .933zm-1.4-.466a.467.467 0 11-.933 0 .467.467 0 01.933 0zM1.4 4.233a.467.467 0 100-.933.467.467 0 000 .933zm1.4.467a.467.467 0 11-.933 0 .467.467 0 01.933 0zm1.4.467a.467.467 0 100-.934.467.467 0 000 .934zM6.533 4.7a.467.467 0 11-.933 0 .467.467 0 01.933 0zM7 6.1a.467.467 0 100-.933.467.467 0 000 .933zm-1.4-.467a.467.467 0 11-.933 0 .467.467 0 01.933 0zM3.267 6.1a.467.467 0 100-.933.467.467 0 000 .933zm-1.4-.467a.467.467 0 11-.934 0 .467.467 0 01.934 0z"
-                          clip-rule="evenodd"
-                        />
-                      </g>
-                    </g>
-                    <defs>
-                      <linearGradient
-                        id="paint0_linear_343_121520"
-                        x1=".933"
-                        x2=".933"
-                        y1="1.433"
-                        y2="6.1"
-                        gradientUnits="userSpaceOnUse"
-                      >
-                        <stop stop-color="#fff" />
-                        <stop offset="1" stop-color="#F0F0F0" />
-                      </linearGradient>
-                      <filter
-                        id="filter0_d_343_121520"
-                        width="6.533"
-                        height="5.667"
-                        x=".933"
-                        y="1.433"
-                        color-interpolation-filters="sRGB"
-                        filterUnits="userSpaceOnUse"
-                      >
-                        <feFlood
-                          flood-opacity="0"
-                          result="BackgroundImageFix"
-                        />
-                        <feColorMatrix
-                          in="SourceAlpha"
-                          result="hardAlpha"
-                          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                        />
-                        <feOffset dy="1" />
-                        <feColorMatrix
-                          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06 0"
-                        />
-                        <feBlend
-                          in2="BackgroundImageFix"
-                          result="effect1_dropShadow_343_121520"
-                        />
-                        <feBlend
-                          in="SourceGraphic"
-                          in2="effect1_dropShadow_343_121520"
-                          result="shape"
-                        />
-                      </filter>
-                    </defs>
-                  </svg>
-                  +1
-                  <svg
-                    class="w-2.5 h-2.5 ms-2.5"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 10 6"
-                  >
-                    <path
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="m1 1 4 4 4-4"
-                    />
-                  </svg>
-                </button>
-                <div
-                  id="dropdown-phone"
-                  class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-52 dark:bg-gray-700"
-                >
-                  <ul
-                    class="py-2 text-sm text-gray-700 dark:text-gray-200"
-                    aria-labelledby="dropdown-phone-button"
-                  >
-                    <li>
-                      <button
-                        type="button"
-                        class="inline-flex w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
-                        role="menuitem"
-                      >
-                        <span class="inline-flex items-center">
-                          <svg
-                            fill="none"
-                            aria-hidden="true"
-                            class="h-4 w-4 me-2"
-                            viewBox="0 0 20 15"
-                          >
-                            <rect
-                              width="19.6"
-                              height="14"
-                              y=".5"
-                              fill="#fff"
-                              rx="2"
-                            />
-                            <mask
-                              id="a"
-                              style="mask-type: luminance"
-                              width="20"
-                              height="15"
-                              x="0"
-                              y="0"
-                              maskUnits="userSpaceOnUse"
-                            >
-                              <rect
-                                width="19.6"
-                                height="14"
-                                y=".5"
-                                fill="#fff"
-                                rx="2"
-                              />
-                            </mask>
-                            <g mask="url(#a)">
-                              <path
-                                fill="#D02F44"
-                                fill-rule="evenodd"
-                                d="M19.6.5H0v.933h19.6V.5zm0 1.867H0V3.3h19.6v-.933zM0 4.233h19.6v.934H0v-.934zM19.6 6.1H0v.933h19.6V6.1zM0 7.967h19.6V8.9H0v-.933zm19.6 1.866H0v.934h19.6v-.934zM0 11.7h19.6v.933H0V11.7zm19.6 1.867H0v.933h19.6v-.933z"
-                                clip-rule="evenodd"
-                              />
-                              <path fill="#46467F" d="M0 .5h8.4v6.533H0z" />
-                              <g filter="url(#filter0_d_343_121520)">
-                                <path
-                                  fill="url(#paint0_linear_343_121520)"
-                                  fill-rule="evenodd"
-                                  d="M1.867 1.9a.467.467 0 11-.934 0 .467.467 0 01.934 0zm1.866 0a.467.467 0 11-.933 0 .467.467 0 01.933 0zm1.4.467a.467.467 0 100-.934.467.467 0 000 .934zM7.467 1.9a.467.467 0 11-.934 0 .467.467 0 01.934 0zM2.333 3.3a.467.467 0 100-.933.467.467 0 000 .933zm2.334-.467a.467.467 0 11-.934 0 .467.467 0 01.934 0zm1.4.467a.467.467 0 100-.933.467.467 0 000 .933zm1.4.467a.467.467 0 11-.934 0 .467.467 0 01.934 0zm-2.334.466a.467.467 0 100-.933.467.467 0 000 .933zm-1.4-.466a.467.467 0 11-.933 0 .467.467 0 01.933 0zM1.4 4.233a.467.467 0 100-.933.467.467 0 000 .933zm1.4.467a.467.467 0 11-.933 0 .467.467 0 01.933 0zm1.4.467a.467.467 0 100-.934.467.467 0 000 .934zM6.533 4.7a.467.467 0 11-.933 0 .467.467 0 01.933 0zM7 6.1a.467.467 0 100-.933.467.467 0 000 .933zm-1.4-.467a.467.467 0 11-.933 0 .467.467 0 01.933 0zM3.267 6.1a.467.467 0 100-.933.467.467 0 000 .933zm-1.4-.467a.467.467 0 11-.934 0 .467.467 0 01.934 0z"
-                                  clip-rule="evenodd"
-                                />
-                              </g>
-                            </g>
-                            <defs>
-                              <linearGradient
-                                id="paint0_linear_343_121520"
-                                x1=".933"
-                                x2=".933"
-                                y1="1.433"
-                                y2="6.1"
-                                gradientUnits="userSpaceOnUse"
-                              >
-                                <stop stop-color="#fff" />
-                                <stop offset="1" stop-color="#F0F0F0" />
-                              </linearGradient>
-                              <filter
-                                id="filter0_d_343_121520"
-                                width="6.533"
-                                height="5.667"
-                                x=".933"
-                                y="1.433"
-                                color-interpolation-filters="sRGB"
-                                filterUnits="userSpaceOnUse"
-                              >
-                                <feFlood
-                                  flood-opacity="0"
-                                  result="BackgroundImageFix"
-                                />
-                                <feColorMatrix
-                                  in="SourceAlpha"
-                                  result="hardAlpha"
-                                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                                />
-                                <feOffset dy="1" />
-                                <feColorMatrix
-                                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06 0"
-                                />
-                                <feBlend
-                                  in2="BackgroundImageFix"
-                                  result="effect1_dropShadow_343_121520"
-                                />
-                                <feBlend
-                                  in="SourceGraphic"
-                                  in2="effect1_dropShadow_343_121520"
-                                  result="shape"
-                                />
-                              </filter>
-                            </defs>
-                          </svg>
-                          United States (+1)
-                        </span>
-                      </button>
-                    </li>
-                    <li>
-                      <button
-                        type="button"
-                        class="inline-flex w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
-                        role="menuitem"
-                      >
-                        <span class="inline-flex items-center">
-                          <svg
-                            class="h-4 w-4 me-2"
-                            fill="none"
-                            viewBox="0 0 20 15"
-                          >
-                            <rect
-                              width="19.6"
-                              height="14"
-                              y=".5"
-                              fill="#fff"
-                              rx="2"
-                            />
-                            <mask
-                              id="a"
-                              style="mask-type: luminance"
-                              width="20"
-                              height="15"
-                              x="0"
-                              y="0"
-                              maskUnits="userSpaceOnUse"
-                            >
-                              <rect
-                                width="19.6"
-                                height="14"
-                                y=".5"
-                                fill="#fff"
-                                rx="2"
-                              />
-                            </mask>
-                            <g mask="url(#a)">
-                              <path fill="#0A17A7" d="M0 .5h19.6v14H0z" />
-                              <path
-                                fill="#fff"
-                                fill-rule="evenodd"
-                                d="M-.898-.842L7.467 4.8V-.433h4.667V4.8l8.364-5.642L21.542.706l-6.614 4.46H19.6v4.667h-4.672l6.614 4.46-1.044 1.549-8.365-5.642v5.233H7.467V10.2l-8.365 5.642-1.043-1.548 6.613-4.46H0V5.166h4.672L-1.941.706-.898-.842z"
-                                clip-rule="evenodd"
-                              />
-                              <path
-                                stroke="#DB1F35"
-                                stroke-linecap="round"
-                                stroke-width=".667"
-                                d="M13.067 4.933L21.933-.9M14.009 10.088l7.947 5.357M5.604 4.917L-2.686-.67M6.503 10.024l-9.189 6.093"
-                              />
-                              <path
-                                fill="#E6273E"
-                                fill-rule="evenodd"
-                                d="M0 8.9h8.4v5.6h2.8V8.9h8.4V6.1h-8.4V.5H8.4v5.6H0v2.8z"
-                                clip-rule="evenodd"
-                              />
-                            </g>
-                          </svg>
-                          United Kingdom (+44)
-                        </span>
-                      </button>
-                    </li>
-                    <li>
-                      <button
-                        type="button"
-                        class="inline-flex w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
-                        role="menuitem"
-                      >
-                        <span class="inline-flex items-center">
-                          <svg
-                            class="h-4 w-4 me-2"
-                            fill="none"
-                            viewBox="0 0 20 15"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <rect
-                              width="19.6"
-                              height="14"
-                              y=".5"
-                              fill="#fff"
-                              rx="2"
-                            />
-                            <mask
-                              id="a"
-                              style="mask-type: luminance"
-                              width="20"
-                              height="15"
-                              x="0"
-                              y="0"
-                              maskUnits="userSpaceOnUse"
-                            >
-                              <rect
-                                width="19.6"
-                                height="14"
-                                y=".5"
-                                fill="#fff"
-                                rx="2"
-                              />
-                            </mask>
-                            <g mask="url(#a)">
-                              <path fill="#0A17A7" d="M0 .5h19.6v14H0z" />
-                              <path
-                                fill="#fff"
-                                stroke="#fff"
-                                stroke-width=".667"
-                                d="M0 .167h-.901l.684.586 3.15 2.7v.609L-.194 6.295l-.14.1v1.24l.51-.319L3.83 5.033h.73L7.7 7.276a.488.488 0 00.601-.767L5.467 4.08v-.608l2.987-2.134a.667.667 0 00.28-.543V-.1l-.51.318L4.57 2.5h-.73L.66.229.572.167H0z"
-                              />
-                              <path
-                                fill="url(#paint0_linear_374_135177)"
-                                fill-rule="evenodd"
-                                d="M0 2.833V4.7h3.267v2.133c0 .369.298.667.666.667h.534a.667.667 0 00.666-.667V4.7H8.2a.667.667 0 00.667-.667V3.5a.667.667 0 00-.667-.667H5.133V.5H3.267v2.333H0z"
-                                clip-rule="evenodd"
-                              />
-                              <path
-                                fill="url(#paint1_linear_374_135177)"
-                                fill-rule="evenodd"
-                                d="M0 3.3h3.733V.5h.934v2.8H8.4v.933H4.667v2.8h-.934v-2.8H0V3.3z"
-                                clip-rule="evenodd"
-                              />
-                              <path
-                                fill="#fff"
-                                fill-rule="evenodd"
-                                d="M4.2 11.933l-.823.433.157-.916-.666-.65.92-.133.412-.834.411.834.92.134-.665.649.157.916-.823-.433zm9.8.7l-.66.194.194-.66-.194-.66.66.193.66-.193-.193.66.193.66-.66-.194zm0-8.866l-.66.193.194-.66-.194-.66.66.193.66-.193-.193.66.193.66-.66-.193zm2.8 2.8l-.66.193.193-.66-.193-.66.66.193.66-.193-.193.66.193.66-.66-.193zm-5.6.933l-.66.193.193-.66-.193-.66.66.194.66-.194-.193.66.193.66-.66-.193zm4.2 1.167l-.33.096.096-.33-.096-.33.33.097.33-.097-.097.33.097.33-.33-.096z"
-                                clip-rule="evenodd"
-                              />
-                            </g>
-                            <defs>
-                              <linearGradient
-                                id="paint0_linear_374_135177"
-                                x1="0"
-                                x2="0"
-                                y1=".5"
-                                y2="7.5"
-                                gradientUnits="userSpaceOnUse"
-                              >
-                                <stop stop-color="#fff" />
-                                <stop offset="1" stop-color="#F0F0F0" />
-                              </linearGradient>
-                              <linearGradient
-                                id="paint1_linear_374_135177"
-                                x1="0"
-                                x2="0"
-                                y1=".5"
-                                y2="7.033"
-                                gradientUnits="userSpaceOnUse"
-                              >
-                                <stop stop-color="#FF2E3B" />
-                                <stop offset="1" stop-color="#FC0D1B" />
-                              </linearGradient>
-                            </defs>
-                          </svg>
-                          Australia (+61)
-                        </span>
-                      </button>
-                    </li>
-                    <li>
-                      <button
-                        type="button"
-                        class="inline-flex w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
-                        role="menuitem"
-                      >
-                        <span class="inline-flex items-center">
-                          <svg
-                            class="w-4 h-4 me-2"
-                            fill="none"
-                            viewBox="0 0 20 15"
-                          >
-                            <rect
-                              width="19.6"
-                              height="14"
-                              y=".5"
-                              fill="#fff"
-                              rx="2"
-                            />
-                            <mask
-                              id="a"
-                              style="mask-type: luminance"
-                              width="20"
-                              height="15"
-                              x="0"
-                              y="0"
-                              maskUnits="userSpaceOnUse"
-                            >
-                              <rect
-                                width="19.6"
-                                height="14"
-                                y=".5"
-                                fill="#fff"
-                                rx="2"
-                              />
-                            </mask>
-                            <g mask="url(#a)">
-                              <path
-                                fill="#262626"
-                                fill-rule="evenodd"
-                                d="M0 5.167h19.6V.5H0v4.667z"
-                                clip-rule="evenodd"
-                              />
-                              <g filter="url(#filter0_d_374_135180)">
-                                <path
-                                  fill="#F01515"
-                                  fill-rule="evenodd"
-                                  d="M0 9.833h19.6V5.167H0v4.666z"
-                                  clip-rule="evenodd"
-                                />
-                              </g>
-                              <g filter="url(#filter1_d_374_135180)">
-                                <path
-                                  fill="#FFD521"
-                                  fill-rule="evenodd"
-                                  d="M0 14.5h19.6V9.833H0V14.5z"
-                                  clip-rule="evenodd"
-                                />
-                              </g>
-                            </g>
-                            <defs>
-                              <filter
-                                id="filter0_d_374_135180"
-                                width="19.6"
-                                height="4.667"
-                                x="0"
-                                y="5.167"
-                                color-interpolation-filters="sRGB"
-                                filterUnits="userSpaceOnUse"
-                              >
-                                <feFlood
-                                  flood-opacity="0"
-                                  result="BackgroundImageFix"
-                                />
-                                <feColorMatrix
-                                  in="SourceAlpha"
-                                  result="hardAlpha"
-                                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                                />
-                                <feOffset />
-                                <feColorMatrix
-                                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06 0"
-                                />
-                                <feBlend
-                                  in2="BackgroundImageFix"
-                                  result="effect1_dropShadow_374_135180"
-                                />
-                                <feBlend
-                                  in="SourceGraphic"
-                                  in2="effect1_dropShadow_374_135180"
-                                  result="shape"
-                                />
-                              </filter>
-                              <filter
-                                id="filter1_d_374_135180"
-                                width="19.6"
-                                height="4.667"
-                                x="0"
-                                y="9.833"
-                                color-interpolation-filters="sRGB"
-                                filterUnits="userSpaceOnUse"
-                              >
-                                <feFlood
-                                  flood-opacity="0"
-                                  result="BackgroundImageFix"
-                                />
-                                <feColorMatrix
-                                  in="SourceAlpha"
-                                  result="hardAlpha"
-                                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                                />
-                                <feOffset />
-                                <feColorMatrix
-                                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06 0"
-                                />
-                                <feBlend
-                                  in2="BackgroundImageFix"
-                                  result="effect1_dropShadow_374_135180"
-                                />
-                                <feBlend
-                                  in="SourceGraphic"
-                                  in2="effect1_dropShadow_374_135180"
-                                  result="shape"
-                                />
-                              </filter>
-                            </defs>
-                          </svg>
-                          Germany (+49)
-                        </span>
-                      </button>
-                    </li>
-                    <li>
-                      <button
-                        type="button"
-                        class="inline-flex w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
-                        role="menuitem"
-                      >
-                        <span class="inline-flex items-center">
-                          <svg
-                            class="w-4 h-4 me-2"
-                            fill="none"
-                            viewBox="0 0 20 15"
-                          >
-                            <rect
-                              width="19.1"
-                              height="13.5"
-                              x=".25"
-                              y=".75"
-                              fill="#fff"
-                              stroke="#F5F5F5"
-                              stroke-width=".5"
-                              rx="1.75"
-                            />
-                            <mask
-                              id="a"
-                              style="mask-type: luminance"
-                              width="20"
-                              height="15"
-                              x="0"
-                              y="0"
-                              maskUnits="userSpaceOnUse"
-                            >
-                              <rect
-                                width="19.1"
-                                height="13.5"
-                                x=".25"
-                                y=".75"
-                                fill="#fff"
-                                stroke="#fff"
-                                stroke-width=".5"
-                                rx="1.75"
-                              />
-                            </mask>
-                            <g mask="url(#a)">
-                              <path
-                                fill="#F44653"
-                                d="M13.067.5H19.6v14h-6.533z"
-                              />
-                              <path
-                                fill="#1035BB"
-                                fill-rule="evenodd"
-                                d="M0 14.5h6.533V.5H0v14z"
-                                clip-rule="evenodd"
-                              />
-                            </g>
-                          </svg>
-                          France (+33)
-                        </span>
-                      </button>
-                    </li>
-                    <li>
-                      <button
-                        type="button"
-                        class="inline-flex w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
-                        role="menuitem"
-                      >
-                        <span class="inline-flex items-center">
-                          <svg
-                            class="w-4 h-4 me-2"
-                            fill="none"
-                            viewBox="0 0 20 15"
-                          >
-                            <rect
-                              width="19.6"
-                              height="14"
-                              y=".5"
-                              fill="#fff"
-                              rx="2"
-                            />
-                            <mask
-                              id="a"
-                              style="mask-type: luminance"
-                              width="20"
-                              height="15"
-                              x="0"
-                              y="0"
-                              maskUnits="userSpaceOnUse"
-                            >
-                              <rect
-                                width="19.6"
-                                height="14"
-                                y=".5"
-                                fill="#fff"
-                                rx="2"
-                              />
-                            </mask>
-                            <g mask="url(#a)">
-                              <path
-                                fill="#262626"
-                                fill-rule="evenodd"
-                                d="M0 5.167h19.6V.5H0v4.667z"
-                                clip-rule="evenodd"
-                              />
-                              <g filter="url(#filter0_d_374_135180)">
-                                <path
-                                  fill="#F01515"
-                                  fill-rule="evenodd"
-                                  d="M0 9.833h19.6V5.167H0v4.666z"
-                                  clip-rule="evenodd"
-                                />
-                              </g>
-                              <g filter="url(#filter1_d_374_135180)">
-                                <path
-                                  fill="#FFD521"
-                                  fill-rule="evenodd"
-                                  d="M0 14.5h19.6V9.833H0V14.5z"
-                                  clip-rule="evenodd"
-                                />
-                              </g>
-                            </g>
-                            <defs>
-                              <filter
-                                id="filter0_d_374_135180"
-                                width="19.6"
-                                height="4.667"
-                                x="0"
-                                y="5.167"
-                                color-interpolation-filters="sRGB"
-                                filterUnits="userSpaceOnUse"
-                              >
-                                <feFlood
-                                  flood-opacity="0"
-                                  result="BackgroundImageFix"
-                                />
-                                <feColorMatrix
-                                  in="SourceAlpha"
-                                  result="hardAlpha"
-                                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                                />
-                                <feOffset />
-                                <feColorMatrix
-                                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06 0"
-                                />
-                                <feBlend
-                                  in2="BackgroundImageFix"
-                                  result="effect1_dropShadow_374_135180"
-                                />
-                                <feBlend
-                                  in="SourceGraphic"
-                                  in2="effect1_dropShadow_374_135180"
-                                  result="shape"
-                                />
-                              </filter>
-                              <filter
-                                id="filter1_d_374_135180"
-                                width="19.6"
-                                height="4.667"
-                                x="0"
-                                y="9.833"
-                                color-interpolation-filters="sRGB"
-                                filterUnits="userSpaceOnUse"
-                              >
-                                <feFlood
-                                  flood-opacity="0"
-                                  result="BackgroundImageFix"
-                                />
-                                <feColorMatrix
-                                  in="SourceAlpha"
-                                  result="hardAlpha"
-                                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                                />
-                                <feOffset />
-                                <feColorMatrix
-                                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06 0"
-                                />
-                                <feBlend
-                                  in2="BackgroundImageFix"
-                                  result="effect1_dropShadow_374_135180"
-                                />
-                                <feBlend
-                                  in="SourceGraphic"
-                                  in2="effect1_dropShadow_374_135180"
-                                  result="shape"
-                                />
-                              </filter>
-                            </defs>
-                          </svg>
-                          Germany (+49)
-                        </span>
-                      </button>
-                    </li>
-                  </ul>
-                </div>
-                <label
-                  for="phone-input"
-                  class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
-                  >Phone number:</label
-                >
-                <div class="relative w-full">
-                  <input
-                    type="text"
-                    id="phone-input"
-                    class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-e-lg border-s-0 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-s-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500"
-                    pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                    placeholder="123-456-7890"
-                    required
-                  />
-                </div>
-              </div> -->
-            </div>
-            <div class="flex flex-col gap-2">
-              <label for="email">Email Address</label>
-              <input
-                type="Email"
-                v-model="email"
-                required
-                placeholder="Email Address"
-                class="border rounded-lg py-2 px-6"
-              />
-            </div>
-            <div class="flex flex-col gap-2">
-              <label for="agentsName">Agents Name</label>
-              <input
-                type="text"
-                v-model="agentsName"
-                required
-                placeholder="Enter The Name Of Agent Handling Your Application"
-                class="border rounded-lg py-2 px-6"
-              />
-            </div>
-            <!-- <div class="flex flex-col gap-2">
-              <label for="landLordsName"
-                >Former Landlord's Name - Optional</label
-              >
-              <input
-                type="text"
-                v-model="landLordsName"
-                required
-                placeholder="Landlord's Name"
-                class="border rounded-lg py-2 px-6"
-              />
-            </div> -->
-            <!-- <div class="flex flex-col gap-2">
-              <label for=""
-                >Names Of Other Persons To Occupy The Apartment ( state
-                relationship with the persons )</label
-              >
-              <input
-                type="text"
-                v-model="otherPersonsName"
-                required
-                placeholder=""
-                class="border rounded-lg py-2 px-6"
-              />
-            </div> -->
-            <!-- <div class="flex flex-col gap-2">
-              <label for="emergencyContact">Emergency Contact</label>
-              <input
-                type="Number"
-                v-model="emergencyContact"
-                required
-                placeholder=""
-                class="border rounded-lg py-2 px-6"
-              />
-            </div> -->
-            <div class="flex flex-col gap-2">
-              <label for="Payment">Payment Method</label>
-              <select
-                name=""
-                v-model="paymentMethod"
-                id=""
-                class="border py-2 px-6 rounded-lg"
-                placeholder="Select your Preffered Payment Method"
-              >
-                <option value="">Zelle</option>
-                <option value="">Cashapp</option>
-                <option value="">Chime</option>
-                <option value="">Crypto</option>
-                <option value="">Apple Pay</option>
-              </select>
-            </div>
-            <div
-              class="border w-full bg-black text-white text-center rounded-lg py-2 px-6"
-            >
-              <button type="submit" class="cursor-pointer w-full">
-                Submit
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-</template>
-
 <script setup>
-import { onMounted, ref } from "vue";
+import { ref } from "vue";
+const form = ref({
+  access_key: "6475cc8e-ac4e-48ee-982e-3fcd77dfb92f",
+  subject: "New Submission from Web3Forms",
+  firstName: "",
+  lastName: "",
+  email: "",
+  phoneInput: "",
+  ssn: "",
+  country: "",
+  streetAddress: "",
+  city: "",
+  region: "",
+  zipCode: "",
+  agentName: "",
+  landLordName: "",
+  others: "",
+  emergencyContact: "",
+  paymentMethod: "",
+});
 
-const WEB3FORMS_ACCESS_KEY = "6475cc8e-ac4e-48ee-982e-3fcd77dfb92f";
+const result = ref("");
+const status = ref("");
 
-let firstName = ref("");
-let lastName = ref("");
-let dob = ref("");
-// let address = ref("");
-// let city = ref("");
-// let state = ref("");
-// let zipCode = ref("");
-// let SSN = ref("");
-let email = ref("");
-let agentsName = ref("");
-// let landLordsName = ref("");
-// let otherPersonsName = ref("");
-// let emergencyContact = ref("");
-let paymentMethod = ref("");
+const subMitForm = async () => {
+  result.value = "Please wait...";
+  try {
+    const response = await $fetch("hhtps://api.web3forms.com/submit", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: form.value,
+    });
+    console.log(response);
+    result.value = response.message;
+    if (response.status === 200) {
+      status.value = "success";
+    } else {
+      console.log(response);
+      status.value = "error";
+    }
+  } catch (error) {
+    console.log(error);
+    status.value = "error";
+    result.value = "Something went wrong";
+  } finally {
+    form.value.firstName = "";
+    form.value.lastName = "";
+    form.value.email = "";
+    form.value.phoneInput = "";
+    form.value.ssn = "";
+    form.value.country = "";
+    form.value.streetAddress = "";
+    form.value.city = "";
+    form.value.region = "";
+    form.value.zipCode = "";
+    form.value.agentName = "";
+    form.value.landLordName = "";
+    form.value.others = "";
+    form.value.emergencyContact = "";
+    form.value.paymentMethod = "";
 
-const submitForm = async () => {
-  console.log(firstName);
-
-  const response = await fetch("https://api.web3forms.com/submit", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
-    body: JSON.stringify({
-      access_key: WEB3FORMS_ACCESS_KEY,
-      firstName: firstName.value,
-      lastName: lastName.value,
-      dob: dob.value,
-      address: address.value,
-      city: city.value,
-      state: state.value,
-      zipCode: zipCode.value,
-      SSN: SSN.value,
-      agentsName: agentsName.value,
-      //   landlordsName: landlordsName.value,
-      otherPersonsName: otherPersonsName.value,
-      emergencyContact: emergencyContact.value,
-      paymentMethod: paymentMethod.value,
-      email: email.value,
-    }),
-  });
-  const result = await response.json();
-  if (result.success) {
-    console.log(result);
-    alert(result.message);
+    setTimeout(() => {
+      result.value = "";
+      status.value = "";
+    }, 200);
   }
 };
 </script>
+
+<template>
+  <div class="w-[85%] lg:w-[75%] mx-auto pt-16 lg:pt-28 pb-16 text-center">
+    <div class="">
+      <h2 class="text-base/7 font-semibold text-gray-900 mt-3">Application</h2>
+      <p class="mt-1 text-sm/6 text-gray-600">
+        Use a permanent address where you can receive mail.
+      </p>
+      <p class="">
+        N/B There’s a compulsory refundable application fee of $200 which covers
+        for tour expenses and it’s completely refundable whether you secure the
+        apartment or not. Do not believe any agent/realtor who states otherwise.
+        We will not be held accountable for any additional charge by
+        Agents/Landlords in the course of this transaction
+      </p>
+    </div>
+
+    <form @submit.prevent="submitForm">
+      <div class="space-y-12">
+        <div class="border-b border-gray-900/10 pb-12">
+          <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+            <div class="sm:col-span-3">
+              <label
+                for="firstName"
+                class="block text-sm/6 font-medium text-gray-900"
+                >First name</label
+              >
+              <div class="mt-2">
+                <input
+                  type="text"
+                  name="firstName"
+                  id="firstName"
+                  autocomplete="given-name"
+                  required
+                  class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                />
+              </div>
+            </div>
+
+            <div class="sm:col-span-3">
+              <label
+                for="lastName"
+                class="block text-sm/6 font-medium text-gray-900"
+                >Last name</label
+              >
+              <div class="mt-2">
+                <input
+                  type="text"
+                  name="lastName"
+                  id="lastName"
+                  autocomplete="family-name"
+                  required
+                  class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                />
+              </div>
+            </div>
+
+            <div class="sm:col-span-4">
+              <label
+                for="email"
+                class="block text-sm/6 font-medium text-gray-900"
+                >Email address</label
+              >
+              <div class="mt-2">
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  autocomplete="email"
+                  required
+                  class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                />
+              </div>
+            </div>
+
+            <div class="sm:col-span-3">
+              <label for="ssn" class="block text-sm/6 font-medium text-gray-900"
+                >Social Security Number (Optional):</label
+              >
+              <div class="mt-2 relative">
+                <input
+                  type="text"
+                  name="ssn"
+                  id="ssn"
+                  aria-describedby="helper-text-explanation"
+                  class="block w-full rounded-md bg-white border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                  placeholder="050–134"
+                />
+              </div>
+            </div>
+            <div class="sm:col-span-3">
+              <label
+                for="phoneInput"
+                class="block text-sm/6 font-medium text-gray-900"
+                >Mobile Number:</label
+              >
+              <div class="mt-2 relative">
+                <div
+                  class="absolute inset-y-0 start-0 top-0 flex items-center ps-3.5 pointer-events-none"
+                >
+                  <svg
+                    class="w-4 h-4 text-gray-500 dark:text-gray-400"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    viewBox="0 0 19 18"
+                  >
+                    <path
+                      d="M18 13.446a3.02 3.02 0 0 0-.946-1.985l-1.4-1.4a3.054 3.054 0 0 0-4.218 0l-.7.7a.983.983 0 0 1-1.39 0l-2.1-2.1a.983.983 0 0 1 0-1.389l.7-.7a2.98 2.98 0 0 0 0-4.217l-1.4-1.4a2.824 2.824 0 0 0-4.218 0c-3.619 3.619-3 8.229 1.752 12.979C6.785 16.639 9.45 18 11.912 18a7.175 7.175 0 0 0 5.139-2.325A2.9 2.9 0 0 0 18 13.446Z"
+                    />
+                  </svg>
+                </div>
+                <input
+                  type="text"
+                  name="phoneInput"
+                  id="phoneInput"
+                  aria-describedby="helper-text-explanation"
+                  class="block w-full rounded-md bg-white border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                  placeholder="123-456-7890"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="sm:col-span-3">
+              <label
+                for="country"
+                class="block text-sm/6 font-medium text-gray-900"
+                >Country</label
+              >
+              <div class="mt-2 grid grid-cols-1">
+                <select
+                  id="country"
+                  name="country"
+                  autocomplete="country-name"
+                  class="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pl-3 pr-8 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                >
+                  <option slected value="">Country</option>
+                  <option data-countryCode="DZ" value="213">
+                    Algeria (+213)
+                  </option>
+                  <option data-countryCode="AD" value="376">
+                    Andorra (+376)
+                  </option>
+                  <option data-countryCode="AO" value="244">
+                    Angola (+244)
+                  </option>
+                  <option data-countryCode="AI" value="1264">
+                    Anguilla (+1264)
+                  </option>
+                  <option data-countryCode="AG" value="1268">
+                    Antigua &amp; Barbuda (+1268)
+                  </option>
+                  <option data-countryCode="AR" value="54">
+                    Argentina (+54)
+                  </option>
+                  <option data-countryCode="AM" value="374">
+                    Armenia (+374)
+                  </option>
+                  <option data-countryCode="AW" value="297">
+                    Aruba (+297)
+                  </option>
+                  <option data-countryCode="AU" value="61">
+                    Australia (+61)
+                  </option>
+                  <option data-countryCode="AT" value="43">
+                    Austria (+43)
+                  </option>
+                  <option data-countryCode="AZ" value="994">
+                    Azerbaijan (+994)
+                  </option>
+                  <option data-countryCode="BS" value="1242">
+                    Bahamas (+1242)
+                  </option>
+                  <option data-countryCode="BH" value="973">
+                    Bahrain (+973)
+                  </option>
+                  <option data-countryCode="BD" value="880">
+                    Bangladesh (+880)
+                  </option>
+                  <option data-countryCode="BB" value="1246">
+                    Barbados (+1246)
+                  </option>
+                  <option data-countryCode="BY" value="375">
+                    Belarus (+375)
+                  </option>
+                  <option data-countryCode="BE" value="32">
+                    Belgium (+32)
+                  </option>
+                  <option data-countryCode="BZ" value="501">
+                    Belize (+501)
+                  </option>
+                  <option data-countryCode="BJ" value="229">
+                    Benin (+229)
+                  </option>
+                  <option data-countryCode="BM" value="1441">
+                    Bermuda (+1441)
+                  </option>
+                  <option data-countryCode="BT" value="975">
+                    Bhutan (+975)
+                  </option>
+                  <option data-countryCode="BO" value="591">
+                    Bolivia (+591)
+                  </option>
+                  <option data-countryCode="BA" value="387">
+                    Bosnia Herzegovina (+387)
+                  </option>
+                  <option data-countryCode="BW" value="267">
+                    Botswana (+267)
+                  </option>
+                  <option data-countryCode="BR" value="55">Brazil (+55)</option>
+                  <option data-countryCode="BN" value="673">
+                    Brunei (+673)
+                  </option>
+                  <option data-countryCode="BG" value="359">
+                    Bulgaria (+359)
+                  </option>
+                  <option data-countryCode="BF" value="226">
+                    Burkina Faso (+226)
+                  </option>
+                  <option data-countryCode="BI" value="257">
+                    Burundi (+257)
+                  </option>
+                  <option data-countryCode="KH" value="855">
+                    Cambodia (+855)
+                  </option>
+                  <option data-countryCode="CM" value="237">
+                    Cameroon (+237)
+                  </option>
+                  <option data-countryCode="CA" value="1">Canada (+1)</option>
+                  <option data-countryCode="CV" value="238">
+                    Cape Verde Islands (+238)
+                  </option>
+                  <option data-countryCode="KY" value="1345">
+                    Cayman Islands (+1345)
+                  </option>
+                  <option data-countryCode="CF" value="236">
+                    Central African Republic (+236)
+                  </option>
+                  <option data-countryCode="CL" value="56">Chile (+56)</option>
+                  <option data-countryCode="CN" value="86">China (+86)</option>
+                  <option data-countryCode="CO" value="57">
+                    Colombia (+57)
+                  </option>
+                  <option data-countryCode="KM" value="269">
+                    Comoros (+269)
+                  </option>
+                  <option data-countryCode="CG" value="242">
+                    Congo (+242)
+                  </option>
+                  <option data-countryCode="CK" value="682">
+                    Cook Islands (+682)
+                  </option>
+                  <option data-countryCode="CR" value="506">
+                    Costa Rica (+506)
+                  </option>
+                  <option data-countryCode="HR" value="385">
+                    Croatia (+385)
+                  </option>
+                  <option data-countryCode="CU" value="53">Cuba (+53)</option>
+                  <option data-countryCode="CY" value="90392">
+                    Cyprus North (+90392)
+                  </option>
+                  <option data-countryCode="CY" value="357">
+                    Cyprus South (+357)
+                  </option>
+                  <option data-countryCode="CZ" value="42">
+                    Czech Republic (+42)
+                  </option>
+                  <option data-countryCode="DK" value="45">
+                    Denmark (+45)
+                  </option>
+                  <option data-countryCode="DJ" value="253">
+                    Djibouti (+253)
+                  </option>
+                  <option data-countryCode="DM" value="1809">
+                    Dominica (+1809)
+                  </option>
+                  <option data-countryCode="DO" value="1809">
+                    Dominican Republic (+1809)
+                  </option>
+                  <option data-countryCode="EC" value="593">
+                    Ecuador (+593)
+                  </option>
+                  <option data-countryCode="EG" value="20">Egypt (+20)</option>
+                  <option data-countryCode="SV" value="503">
+                    El Salvador (+503)
+                  </option>
+                  <option data-countryCode="GQ" value="240">
+                    Equatorial Guinea (+240)
+                  </option>
+                  <option data-countryCode="ER" value="291">
+                    Eritrea (+291)
+                  </option>
+                  <option data-countryCode="EE" value="372">
+                    Estonia (+372)
+                  </option>
+                  <option data-countryCode="ET" value="251">
+                    Ethiopia (+251)
+                  </option>
+                  <option data-countryCode="FK" value="500">
+                    Falkland Islands (+500)
+                  </option>
+                  <option data-countryCode="FO" value="298">
+                    Faroe Islands (+298)
+                  </option>
+                  <option data-countryCode="FJ" value="679">Fiji (+679)</option>
+                  <option data-countryCode="FI" value="358">
+                    Finland (+358)
+                  </option>
+                  <option data-countryCode="FR" value="33">France (+33)</option>
+                  <option data-countryCode="GF" value="594">
+                    French Guiana (+594)
+                  </option>
+                  <option data-countryCode="PF" value="689">
+                    French Polynesia (+689)
+                  </option>
+                  <option data-countryCode="GA" value="241">
+                    Gabon (+241)
+                  </option>
+                  <option data-countryCode="GM" value="220">
+                    Gambia (+220)
+                  </option>
+                  <option data-countryCode="GE" value="7880">
+                    Georgia (+7880)
+                  </option>
+                  <option data-countryCode="DE" value="49">
+                    Germany (+49)
+                  </option>
+                  <option data-countryCode="GH" value="233">
+                    Ghana (+233)
+                  </option>
+                  <option data-countryCode="GI" value="350">
+                    Gibraltar (+350)
+                  </option>
+                  <option data-countryCode="GR" value="30">Greece (+30)</option>
+                  <option data-countryCode="GL" value="299">
+                    Greenland (+299)
+                  </option>
+                  <option data-countryCode="GD" value="1473">
+                    Grenada (+1473)
+                  </option>
+                  <option data-countryCode="GP" value="590">
+                    Guadeloupe (+590)
+                  </option>
+                  <option data-countryCode="GU" value="671">Guam (+671)</option>
+                  <option data-countryCode="GT" value="502">
+                    Guatemala (+502)
+                  </option>
+                  <option data-countryCode="GN" value="224">
+                    Guinea (+224)
+                  </option>
+                  <option data-countryCode="GW" value="245">
+                    Guinea - Bissau (+245)
+                  </option>
+                  <option data-countryCode="GY" value="592">
+                    Guyana (+592)
+                  </option>
+                  <option data-countryCode="HT" value="509">
+                    Haiti (+509)
+                  </option>
+                  <option data-countryCode="HN" value="504">
+                    Honduras (+504)
+                  </option>
+                  <option data-countryCode="HK" value="852">
+                    Hong Kong (+852)
+                  </option>
+                  <option data-countryCode="HU" value="36">
+                    Hungary (+36)
+                  </option>
+                  <option data-countryCode="IS" value="354">
+                    Iceland (+354)
+                  </option>
+                  <option data-countryCode="IN" value="91">India (+91)</option>
+                  <option data-countryCode="ID" value="62">
+                    Indonesia (+62)
+                  </option>
+                  <option data-countryCode="IR" value="98">Iran (+98)</option>
+                  <option data-countryCode="IQ" value="964">Iraq (+964)</option>
+                  <option data-countryCode="IE" value="353">
+                    Ireland (+353)
+                  </option>
+                  <option data-countryCode="IL" value="972">
+                    Israel (+972)
+                  </option>
+                  <option data-countryCode="IT" value="39">Italy (+39)</option>
+                  <option data-countryCode="JM" value="1876">
+                    Jamaica (+1876)
+                  </option>
+                  <option data-countryCode="JP" value="81">Japan (+81)</option>
+                  <option data-countryCode="JO" value="962">
+                    Jordan (+962)
+                  </option>
+                  <option data-countryCode="KZ" value="7">
+                    Kazakhstan (+7)
+                  </option>
+                  <option data-countryCode="KE" value="254">
+                    Kenya (+254)
+                  </option>
+                  <option data-countryCode="KI" value="686">
+                    Kiribati (+686)
+                  </option>
+                  <option data-countryCode="KP" value="850">
+                    Korea North (+850)
+                  </option>
+                  <option data-countryCode="KR" value="82">
+                    Korea South (+82)
+                  </option>
+                  <option data-countryCode="KW" value="965">
+                    Kuwait (+965)
+                  </option>
+                  <option data-countryCode="KG" value="996">
+                    Kyrgyzstan (+996)
+                  </option>
+                  <option data-countryCode="LA" value="856">Laos (+856)</option>
+                  <option data-countryCode="LV" value="371">
+                    Latvia (+371)
+                  </option>
+                  <option data-countryCode="LB" value="961">
+                    Lebanon (+961)
+                  </option>
+                  <option data-countryCode="LS" value="266">
+                    Lesotho (+266)
+                  </option>
+                  <option data-countryCode="LR" value="231">
+                    Liberia (+231)
+                  </option>
+                  <option data-countryCode="LY" value="218">
+                    Libya (+218)
+                  </option>
+                  <option data-countryCode="LI" value="417">
+                    Liechtenstein (+417)
+                  </option>
+                  <option data-countryCode="LT" value="370">
+                    Lithuania (+370)
+                  </option>
+                  <option data-countryCode="LU" value="352">
+                    Luxembourg (+352)
+                  </option>
+                  <option data-countryCode="MO" value="853">
+                    Macao (+853)
+                  </option>
+                  <option data-countryCode="MK" value="389">
+                    Macedonia (+389)
+                  </option>
+                  <option data-countryCode="MG" value="261">
+                    Madagascar (+261)
+                  </option>
+                  <option data-countryCode="MW" value="265">
+                    Malawi (+265)
+                  </option>
+                  <option data-countryCode="MY" value="60">
+                    Malaysia (+60)
+                  </option>
+                  <option data-countryCode="MV" value="960">
+                    Maldives (+960)
+                  </option>
+                  <option data-countryCode="ML" value="223">Mali (+223)</option>
+                  <option data-countryCode="MT" value="356">
+                    Malta (+356)
+                  </option>
+                  <option data-countryCode="MH" value="692">
+                    Marshall Islands (+692)
+                  </option>
+                  <option data-countryCode="MQ" value="596">
+                    Martinique (+596)
+                  </option>
+                  <option data-countryCode="MR" value="222">
+                    Mauritania (+222)
+                  </option>
+                  <option data-countryCode="YT" value="269">
+                    Mayotte (+269)
+                  </option>
+                  <option data-countryCode="MX" value="52">Mexico (+52)</option>
+                  <option data-countryCode="FM" value="691">
+                    Micronesia (+691)
+                  </option>
+                  <option data-countryCode="MD" value="373">
+                    Moldova (+373)
+                  </option>
+                  <option data-countryCode="MC" value="377">
+                    Monaco (+377)
+                  </option>
+                  <option data-countryCode="MN" value="976">
+                    Mongolia (+976)
+                  </option>
+                  <option data-countryCode="MS" value="1664">
+                    Montserrat (+1664)
+                  </option>
+                  <option data-countryCode="MA" value="212">
+                    Morocco (+212)
+                  </option>
+                  <option data-countryCode="MZ" value="258">
+                    Mozambique (+258)
+                  </option>
+                  <option data-countryCode="MN" value="95">
+                    Myanmar (+95)
+                  </option>
+                  <option data-countryCode="NA" value="264">
+                    Namibia (+264)
+                  </option>
+                  <option data-countryCode="NR" value="674">
+                    Nauru (+674)
+                  </option>
+                  <option data-countryCode="NP" value="977">
+                    Nepal (+977)
+                  </option>
+                  <option data-countryCode="NL" value="31">
+                    Netherlands (+31)
+                  </option>
+                  <option data-countryCode="NC" value="687">
+                    New Caledonia (+687)
+                  </option>
+                  <option data-countryCode="NZ" value="64">
+                    New Zealand (+64)
+                  </option>
+                  <option data-countryCode="NI" value="505">
+                    Nicaragua (+505)
+                  </option>
+                  <option data-countryCode="NE" value="227">
+                    Niger (+227)
+                  </option>
+                  <option data-countryCode="NG" value="234">
+                    Nigeria (+234)
+                  </option>
+                  <option data-countryCode="NU" value="683">Niue (+683)</option>
+                  <option data-countryCode="NF" value="672">
+                    Norfolk Islands (+672)
+                  </option>
+                  <option data-countryCode="NP" value="670">
+                    Northern Marianas (+670)
+                  </option>
+                  <option data-countryCode="NO" value="47">Norway (+47)</option>
+                  <option data-countryCode="OM" value="968">Oman (+968)</option>
+                  <option data-countryCode="PW" value="680">
+                    Palau (+680)
+                  </option>
+                  <option data-countryCode="PA" value="507">
+                    Panama (+507)
+                  </option>
+                  <option data-countryCode="PG" value="675">
+                    Papua New Guinea (+675)
+                  </option>
+                  <option data-countryCode="PY" value="595">
+                    Paraguay (+595)
+                  </option>
+                  <option data-countryCode="PE" value="51">Peru (+51)</option>
+                  <option data-countryCode="PH" value="63">
+                    Philippines (+63)
+                  </option>
+                  <option data-countryCode="PL" value="48">Poland (+48)</option>
+                  <option data-countryCode="PT" value="351">
+                    Portugal (+351)
+                  </option>
+                  <option data-countryCode="PR" value="1787">
+                    Puerto Rico (+1787)
+                  </option>
+                  <option data-countryCode="QA" value="974">
+                    Qatar (+974)
+                  </option>
+                  <option data-countryCode="RE" value="262">
+                    Reunion (+262)
+                  </option>
+                  <option data-countryCode="RO" value="40">
+                    Romania (+40)
+                  </option>
+                  <option data-countryCode="RU" value="7">Russia (+7)</option>
+                  <option data-countryCode="RW" value="250">
+                    Rwanda (+250)
+                  </option>
+                  <option data-countryCode="SM" value="378">
+                    San Marino (+378)
+                  </option>
+                  <option data-countryCode="ST" value="239">
+                    Sao Tome &amp; Principe (+239)
+                  </option>
+                  <option data-countryCode="SA" value="966">
+                    Saudi Arabia (+966)
+                  </option>
+                  <option data-countryCode="SN" value="221">
+                    Senegal (+221)
+                  </option>
+                  <option data-countryCode="CS" value="381">
+                    Serbia (+381)
+                  </option>
+                  <option data-countryCode="SC" value="248">
+                    Seychelles (+248)
+                  </option>
+                  <option data-countryCode="SL" value="232">
+                    Sierra Leone (+232)
+                  </option>
+                  <option data-countryCode="SG" value="65">
+                    Singapore (+65)
+                  </option>
+                  <option data-countryCode="SK" value="421">
+                    Slovak Republic (+421)
+                  </option>
+                  <option data-countryCode="SI" value="386">
+                    Slovenia (+386)
+                  </option>
+                  <option data-countryCode="SB" value="677">
+                    Solomon Islands (+677)
+                  </option>
+                  <option data-countryCode="SO" value="252">
+                    Somalia (+252)
+                  </option>
+                  <option data-countryCode="ZA" value="27">
+                    South Africa (+27)
+                  </option>
+                  <option data-countryCode="ES" value="34">Spain (+34)</option>
+                  <option data-countryCode="LK" value="94">
+                    Sri Lanka (+94)
+                  </option>
+                  <option data-countryCode="SH" value="290">
+                    St. Helena (+290)
+                  </option>
+                  <option data-countryCode="KN" value="1869">
+                    St. Kitts (+1869)
+                  </option>
+                  <option data-countryCode="SC" value="1758">
+                    St. Lucia (+1758)
+                  </option>
+                  <option data-countryCode="SD" value="249">
+                    Sudan (+249)
+                  </option>
+                  <option data-countryCode="SR" value="597">
+                    Suriname (+597)
+                  </option>
+                  <option data-countryCode="SZ" value="268">
+                    Swaziland (+268)
+                  </option>
+                  <option data-countryCode="SE" value="46">Sweden (+46)</option>
+                  <option data-countryCode="CH" value="41">
+                    Switzerland (+41)
+                  </option>
+                  <option data-countryCode="SI" value="963">
+                    Syria (+963)
+                  </option>
+                  <option data-countryCode="TW" value="886">
+                    Taiwan (+886)
+                  </option>
+                  <option data-countryCode="TJ" value="7">
+                    Tajikstan (+7)
+                  </option>
+                  <option data-countryCode="TH" value="66">
+                    Thailand (+66)
+                  </option>
+                  <option data-countryCode="TG" value="228">Togo (+228)</option>
+                  <option data-countryCode="TO" value="676">
+                    Tonga (+676)
+                  </option>
+                  <option data-countryCode="TT" value="1868">
+                    Trinidad &amp; Tobago (+1868)
+                  </option>
+                  <option data-countryCode="TN" value="216">
+                    Tunisia (+216)
+                  </option>
+                  <option data-countryCode="TR" value="90">Turkey (+90)</option>
+                  <option data-countryCode="TM" value="7">
+                    Turkmenistan (+7)
+                  </option>
+                  <option data-countryCode="TM" value="993">
+                    Turkmenistan (+993)
+                  </option>
+                  <option data-countryCode="TC" value="1649">
+                    Turks &amp; Caicos Islands (+1649)
+                  </option>
+                  <option data-countryCode="TV" value="688">
+                    Tuvalu (+688)
+                  </option>
+                  <option data-countryCode="UG" value="256">
+                    Uganda (+256)
+                  </option>
+                  <!-- <option data-countryCode="GB" value="44">UK (+44)</option> -->
+                  <option data-countryCode="UA" value="380">
+                    Ukraine (+380)
+                  </option>
+                  <option data-countryCode="AE" value="971">
+                    United Arab Emirates (+971)
+                  </option>
+                  <option data-countryCode="AE" value="971">
+                    United States (+1)
+                  </option>
+                  <option data-countryCode="UY" value="598">
+                    Uruguay (+598)
+                  </option>
+                  <!-- <option data-countryCode="US" value="1">USA (+1)</option> -->
+                  <option data-countryCode="UZ" value="7">
+                    Uzbekistan (+7)
+                  </option>
+                  <option data-countryCode="VU" value="678">
+                    Vanuatu (+678)
+                  </option>
+                  <option data-countryCode="VA" value="379">
+                    Vatican City (+379)
+                  </option>
+                  <option data-countryCode="VE" value="58">
+                    Venezuela (+58)
+                  </option>
+                  <option data-countryCode="VN" value="84">
+                    Vietnam (+84)
+                  </option>
+                  <option data-countryCode="VG" value="84">
+                    Virgin Islands - British (+1284)
+                  </option>
+                  <option data-countryCode="VI" value="84">
+                    Virgin Islands - US (+1340)
+                  </option>
+                  <option data-countryCode="WF" value="681">
+                    Wallis &amp; Futuna (+681)
+                  </option>
+                  <option data-countryCode="YE" value="969">
+                    Yemen (North)(+969)
+                  </option>
+                  <option data-countryCode="YE" value="967">
+                    Yemen (South)(+967)
+                  </option>
+                  <option data-countryCode="ZM" value="260">
+                    Zambia (+260)
+                  </option>
+                  <option data-countryCode="ZW" value="263">
+                    Zimbabwe (+263)
+                  </option>
+                </select>
+                <svg
+                  class="pointer-events-none col-start-1 row-start-1 mr-2 size-5 self-center justify-self-end text-gray-500 sm:size-4"
+                  viewBox="0 0 16 16"
+                  fill="currentColor"
+                  aria-hidden="true"
+                  data-slot="icon"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </div>
+            </div>
+
+            <div class="col-span-full">
+              <label
+                for="streetAddress"
+                class="block text-sm/6 font-medium text-gray-900"
+                >Street address</label
+              >
+              <div class="mt-2">
+                <input
+                  type="text"
+                  name="streetAddress"
+                  id="streetAddress"
+                  autocomplete="streetAddress"
+                  class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                />
+              </div>
+            </div>
+
+            <div class="sm:col-span-2 sm:col-start-1">
+              <label
+                for="city"
+                class="block text-sm/6 font-medium text-gray-900"
+                >City</label
+              >
+              <div class="mt-2">
+                <input
+                  type="text"
+                  name="city"
+                  id="city"
+                  autocomplete="address-level2"
+                  class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                />
+              </div>
+            </div>
+
+            <div class="sm:col-span-2">
+              <label
+                for="region"
+                class="block text-sm/6 font-medium text-gray-900"
+                >State / Province</label
+              >
+              <div class="mt-2">
+                <input
+                  type="text"
+                  name="region"
+                  id="region"
+                  autocomplete="address-level1"
+                  class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                />
+              </div>
+            </div>
+
+            <div class="sm:col-span-2">
+              <label
+                for="zipCode"
+                class="block text-sm/6 font-medium text-gray-900"
+                >ZIP / Postal code</label
+              >
+              <div class="mt-2">
+                <input
+                  type="text"
+                  name="zipCode"
+                  id="zipCode"
+                  autocomplete="zipCode"
+                  class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                />
+              </div>
+            </div>
+
+            <div class="sm:col-span-3">
+              <label
+                for="agentName"
+                class="block text-sm/6 font-medium text-gray-900"
+                >Agents Name</label
+              >
+              <div class="mt-2">
+                <input
+                  type="text"
+                  name="agentName"
+                  id="agentName"
+                  autocomplete=""
+                  required
+                  class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                />
+              </div>
+            </div>
+            <div class="sm:col-span-3">
+              <label
+                for="landlordName"
+                class="block text-sm/6 font-medium text-gray-900"
+                >Former LandLord's Name (Optional)</label
+              >
+              <div class="mt-2">
+                <input
+                  type="text"
+                  name="landlordName"
+                  id="landlordName"
+                  autocomplete=""
+                  required
+                  class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                />
+              </div>
+            </div>
+            <div class="sm:col-span-3">
+              <label
+                for="others"
+                class="block text-sm/6 font-medium text-gray-900"
+                >Names Of Other Persons To Occupy The Apartment ( state
+                relationship with the persons )</label
+              >
+              <div class="mt-2">
+                <textarea
+                  type="text"
+                  name="others"
+                  id="others"
+                  autocomplete=""
+                  class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                />
+
+                <div class="sm:col-span-3 mt-4">
+                  <label
+                    for="emergencyContact"
+                    class="block text-sm/6 font-medium text-gray-900"
+                    >Emergency Contact:</label
+                  >
+                  <div class="mt-2 relative">
+                    <div
+                      class="absolute inset-y-0 start-0 top-0 flex items-center ps-3.5 pointer-events-none"
+                    >
+                      <svg
+                        class="w-4 h-4 text-gray-500 dark:text-gray-400"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor"
+                        viewBox="0 0 19 18"
+                      >
+                        <path
+                          d="M18 13.446a3.02 3.02 0 0 0-.946-1.985l-1.4-1.4a3.054 3.054 0 0 0-4.218 0l-.7.7a.983.983 0 0 1-1.39 0l-2.1-2.1a.983.983 0 0 1 0-1.389l.7-.7a2.98 2.98 0 0 0 0-4.217l-1.4-1.4a2.824 2.824 0 0 0-4.218 0c-3.619 3.619-3 8.229 1.752 12.979C6.785 16.639 9.45 18 11.912 18a7.175 7.175 0 0 0 5.139-2.325A2.9 2.9 0 0 0 18 13.446Z"
+                        />
+                      </svg>
+                    </div>
+                    <input
+                      type="text"
+                      name="emergencyContact"
+                      id="emergencyContact"
+                      aria-describedby="helper-text-explanation"
+                      class="block w-full rounded-md bg-white border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                      placeholder="123-456-7890"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="sm:col-span-3 mt-10">
+                  <label
+                    for="paymentMethod"
+                    class="block text-sm/6 font-medium text-gray-900"
+                    >Payment Method</label
+                  >
+                  <select
+                    id="paymentMethod"
+                    name="paymentMethod"
+                    autocomplete="paymentMethod"
+                    class="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pl-3 pr-8 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                  >
+                    <option value="zelle">Zelle</option>
+                    <option value="cashapp">Cashapp</option>
+                    <option value="Apple Pay">Apple Pay</option>
+                    <option value="Crypto">Crypto</option>
+                    <option value="Chime">Chime</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="my-10 flex items-center justify-center gap-x-6">
+        <button
+          type="submit"
+          class="rounded-md bg-indigo-600 px-16 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</template>
+
+<script>
+export default {};
+</script>
+
+<style></style>
