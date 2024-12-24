@@ -106,21 +106,7 @@ const image =
         </div>
       </div>
     </div>
-    <div class="fixed bottom-10 right-10 z-50">
-      <div>
-        <div class="flex items-center gap-2">
-          <a class="rounded-lg bg-white px-4 py-2 text-black hidden lg:block">
-            Need Help? Chat With Us
-          </a>
-          <a
-            class="w-14 h-14 rounded-full bg-green-600 flex items-center justify-center"
-          >
-            <i class="fa-brands fa-whatsapp text-white text-3xl"></i>
-            <i class="fa-solid fa-xmark text-white text-2xl hidden"></i>
-          </a>
-        </div>
-      </div>
-    </div>
+
     <section class="py-10 lg:py-16">
       <div class="w-[85%] lg:w-[70%] mx-auto">
         <div class="text-center">
