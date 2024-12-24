@@ -26,7 +26,7 @@ const status = ref("");
 const subMitForm = async () => {
   result.value = "Please wait...";
   try {
-    const response = await $fetch("hhtps://api.web3forms.com/submit", {
+    const response = await $fetch("https://api.web3forms.com/submit", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: form.value,
