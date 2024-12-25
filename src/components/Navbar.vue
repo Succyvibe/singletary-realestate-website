@@ -29,21 +29,40 @@ let open = ref(false);
 function MenuOpen() {
   open.value = !open.value;
 }
+
+let showWhiteBackground = ref(false);
+document.addEventListener("scroll", function () {
+  let bodyTopPosition = document.body.getBoundingClientRect().top;
+
+  if (bodyTopPosition < -150) {
+    showWhiteBackground.value = true;
+  } else {
+    showWhiteBackground.value = false;
+  }
+});
 </script>
 
 <template>
   <div>
-    <header class="py-4 fixed top-0 left-0 w-full z-40">
-      <nav
-        class="w-[85%] lg:w-[70%] mx-auto text-white flex justify-between items-center"
-      >
+    <header
+      class="py-4 fixed top-0 left-0 w-full z-40 transition-colors duration-500 bg-white shadow"
+      :class="{ 'bg-transparent shadow-none': !showWhiteBackground }"
+    >
+      <nav class="w-[85%] lg:w-[70%] mx-auto flex justify-between items-center">
         <div>
-          <RouterLink to="/" class="text-lg lg:text-2xl font-bold">
-            Singletary Realty
+          <RouterLink
+            to="/"
+            class="text-lg italic lg:text-2xl font-bold"
+            :class="{ 'text-white': !showWhiteBackground }"
+          >
+            SKY__HOMES__GROUP
           </RouterLink>
         </div>
 
-        <ul class="lg:flex gap-10 items-center transition-all hidden">
+        <ul
+          class="lg:flex gap-10 items-center transition-all hidden"
+          :class="{ 'sm:text-white': !showWhiteBackground }"
+        >
           <li><RouterLink class="hover:border-b-2" to="/">Home</RouterLink></li>
           <li>
             <RouterLink class="hover:border-b-2" to="/about"
@@ -57,7 +76,7 @@ function MenuOpen() {
           </li>
           <li>
             <RouterLink class="hover:border-b-2" to="/agents"
-              >Singletary Agents</RouterLink
+              >Sky Homes Agents</RouterLink
             >
           </li>
         </ul>
@@ -87,7 +106,7 @@ function MenuOpen() {
           </li>
           <li class="mt-10" @click="MenuOpen()">
             <RouterLink class="hover:border-b-2" to="/agents"
-              >Singletary Agents</RouterLink
+              >Sky Homes Agents</RouterLink
             >
           </li>
 
@@ -102,7 +121,11 @@ function MenuOpen() {
         </ul>
 
         <!-- ===========================Hamburger Icon============= -->
-        <div class="lg:hidden duration-150 ease-in" @click="MenuOpen()">
+        <div
+          class="lg:hidden duration-150 ease-in"
+          @click="MenuOpen()"
+          :class="{ 'text-white': !showWhiteBackground }"
+        >
           <i :class="[open ? 'fa-solid fa-xmark' : 'fa-solid fa-bars']"></i>
         </div>
       </nav>

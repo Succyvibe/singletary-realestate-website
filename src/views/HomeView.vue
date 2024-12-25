@@ -20,7 +20,7 @@ const image =
           <div>
             <div class="flex flex-col gap-4 text-white pt-20">
               <h3 class="italic text-xl relative">
-                Welcome to Singletary Real Group
+                Welcome to Sky Homes Group
                 <!-- <span class="absolute -top-2 right-0"
                   ><i class="fa-regular fa-registered text-white font-bold"></i
                 ></span> -->

@@ -6,7 +6,7 @@
           <div>
             <div>
               <RouterLink to="/" class="text-lg lg:text-2xl font-bold">
-                Singletary Realty
+                Sky Homes Group
               </RouterLink>
             </div>
             <div class="lg:w-[40%]">
@@ -44,7 +44,7 @@
 
       <div class="">
         <h4 class="pb-10">Contact</h4>
-        <div>Email: <span>Singletaryrealtyny@gmail.com</span></div>
+
         <div>Customer Care Whatsapp 24/7: <span>+1(814) 384-9233</span></div>
         <p>667 Madison Ave,New York, NY 10065, United States</p>
       </div>
