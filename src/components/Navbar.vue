@@ -86,6 +86,9 @@ document.addEventListener("scroll", function () {
               >Sky Homes Agents</RouterLink
             >
           </li>
+          <li>
+            <RouterLink class="hover:border-b-2" to="/Blogs">Blogs</RouterLink>
+          </li>
         </ul>
 
         <div class="hidden lg:flex items-center transition-all duration-150">

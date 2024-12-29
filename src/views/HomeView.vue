@@ -181,8 +181,10 @@ const image =
           </p>
         </div>
         <div class="flex flex-col w-full">
-          <div class="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
-            <div>
+          <div
+            class="grid lg:grid-cols-2 xl:grid-cols-3 lg:gap-8 text-center lg:text-start"
+          >
+            <div class="mb-8 lg:mb-0">
               <div class="border-[6px] h-[240px] border-white overflow-hidden">
                 <img
                   class="w-full h-full bg-cover hover:scale-125 transition duration-[0.7s] ease-in-out"
@@ -190,15 +192,15 @@ const image =
                   alt=""
                 />
               </div>
-              <h3 class="text-2xl lg:text-[48px] font-[500] my-5">
+              <h3 class="text-2xl lg:text-[48px] font-[500] mb-2 lg:my-5">
                 Industrial
               </h3>
-              <p class="text-[#00000080]">
+              <p class="text-[rgba(0,0,0,0.5)] mt-4">
                 Industrial development is our main line of business. We do
                 Factory Construction, Warehouse and others
               </p>
             </div>
-            <div>
+            <div class="mb-8 lg:mb-0">
               <div class="border-[6px] h-[240px] border-white overflow-hidden">
                 <img
                   class="w-full h-full bg-cover hover:scale-125 transition duration-[0.7s] ease-in-out"
@@ -206,15 +208,15 @@ const image =
                   alt=""
                 />
               </div>
-              <h3 class="text-2xl lg:text-[48px] font-[500] my-5">
+              <h3 class="text-2xl lg:text-[48px] font-[500] mb-2 lg:my-5">
                 Commercial
               </h3>
-              <p class="text-[#00000080]">
+              <p class="text-[#00000080] mt-4">
                 Our experience building in the Commercial field includes
                 Showrooms, Supermalls and Office Buildings
               </p>
             </div>
-            <div>
+            <div class="mb-8 lg:mb-0">
               <div class="border-[6px] h-[240px] border-white overflow-hidden">
                 <img
                   class="w-full h-full bg-cover hover:scale-125 transition duration-[0.7s] ease-in-out"
@@ -222,10 +224,10 @@ const image =
                   alt=""
                 />
               </div>
-              <h3 class="text-2xl lg:text-[48px] font-[500] my-5">
+              <h3 class="text-2xl lg:text-[48px] font-[500] mb-2 lg:my-5">
                 Residential
               </h3>
-              <p class="text-[#00000080]">
+              <p class="text-[#00000080] mt-4">
                 Residential development is the beginning that has shaped us to
                 this day. Our development includes Houses & Apartments
               </p>
@@ -244,7 +246,7 @@ const image =
           <div
             class="flex flex-col items-center justify-center gap-x-4 text-white h-full"
           >
-            <div class="w-[85%] lg:w-[70%] text-center">
+            <div class="lg:w-[70%] text-center">
               <h1 class="text-2xl lg:text-5xl mb-4">Our real estate Prowess</h1>
               <p class="">
                 Beyond the beautiful properties and the personal touch of our
@@ -262,6 +264,105 @@ const image =
               >
                 Become a Skyline Agent
               </RouterLink>
+            </div>
+            <!-- <div>
+            <div class="rounded-2xl">
+              <img :src="ideas" alt="" class="w-full rounded-2xl" />
+            </div>
+          </div> -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-10 lg:py-16 bg-gray-200">
+      <div class="w-[85%] lg:w-[85%] mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-2xl lg:text-5xl mb-4">Together We Do More</h2>
+          <p class="text-sm lg:text-lg">
+            Skyline Homes Group is there to help at every big step in the buying
+            journey.
+          </p>
+        </div>
+
+        <div class="w-full">
+          <div
+            class="flex flex-col gap-y-10 lg:gap-y-0 lg:flex-row justify-between lg:p-4"
+          >
+            <div class="w-full lg:w-[50%] lg:border-r-2 border-red-600">
+              <div class="w-full">
+                <div class="w-full flex flex-col items-center justify-center">
+                  <div class="lg:w-[30%] rounded-full">
+                    <img
+                      src="https://dims.web.production.kw-prod.brightspot.cloud/dims4/default/913d27a/2147483647/strip/true/crop/192x192+0+0/resize/200x200!/quality/90/?url=https%3A%2F%2Fstatic.kw.com%2F3f%2Fa2%2F4ccc90d64180a78d40ad9cadbd7b%2Fhomeloans.png"
+                      alt=""
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div class="pt-8 text-center lg:px-2">
+                    <p class="text-gray-500 font-bold">SKYLINE</p>
+                    <h3 class="text-red-700 font-bold text-2xl">Home Loans</h3>
+                    <p class="mt-8 text-sm lg:text-md">
+                      Helping buyers stand out in competitive housing markets by
+                      providing faster loan approval and stronger purchase
+                      offer.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="w-full lg:w-[50%] lg:border-r-2">
+              <div class="w-full">
+                <div class="w-full flex flex-col items-center justify-center">
+                  <div class="lg:w-[30%] rounded-full">
+                    <img
+                      src="https://dims.web.production.kw-prod.brightspot.cloud/dims4/default/24ba53c/2147483647/strip/true/crop/192x192+0+0/resize/200x200!/quality/90/?url=https%3A%2F%2Fstatic.kw.com%2F3a%2F6e%2F9e962106458997a418de8845ed8c%2Fcovered.png"
+                      alt=""
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div class="pt-8 text-center lg:px-2">
+                    <p class="text-gray-500 font-bold">SKYLINE</p>
+                    <h3 class="text-blue-300 font-bold text-2xl">Covered</h3>
+                    <p class="mt-8 text-sm lg:text-md">
+                      Helping buyers stand out in competitive housing markets by
+                      providing faster loan approval and stronger purchase
+                      offer.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      class="relative py-16 bg-[url('https://dims.web.production.kw-prod.brightspot.cloud/dims4/default/95b13f3/2147483647/strip/true/crop/2246x1600+797+0/resize/640x456!/format/webp/quality/90/?url=https%3A%2F%2Fstatic.kw.com%2F5f%2F73%2F1f1133004e46be154b3b1c42bab2%2Fcoffeeladyleft.jpg')] bg-cover bg-center bg-no-repeat h-[500px]"
+    >
+      <div class="absolute top-0 left-0 w-full h-full z-10 bg-black/50"></div>
+      <div class="w-full h-full absolute top-0 left-0 z-20">
+        <div class="w-[85%] lg:w-[70%] mx-auto h-full">
+          <div
+            class="flex flex-col items-center justify-center gap-x-4 text-white h-full"
+          >
+            <div class="lg:w-[70%] text-right">
+              <h1 class="text-2xl lg:text-5xl mb-4">
+                Curious about what’s trending in your neighborhood?
+              </h1>
+              <p class="">
+                Download our recommended app for real estate insights, on
+                demand.
+              </p>
+            </div>
+            <div class="mt-4 w-full flex justify-center">
+              <a
+                href="https://play.google.com/store/apps/details?id=com.smarteragent.android.kw&pcampaignid=web_share"
+                target="_blank"
+                class="bg-white rounded-full px-10 py-3 text-black text-center"
+              >
+                Download the App
+              </a>
             </div>
             <!-- <div>
             <div class="rounded-2xl">

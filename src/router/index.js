@@ -1,7 +1,10 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import Application from "@/views/Application.vue";
-import Agents from "@/views/Agents.vue";
+import Agents from "@/views/agents/Agents.vue";
+import Agentss from "@/views/agents/AgentDetails.vue";
+import Blogs from "@/views/blogs/Blogs.vue";
+import BlogDetails from "@/views/blogs/BlogDetails.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -11,6 +14,12 @@ const router = createRouter({
       name: "home",
       component: HomeView,
     },
+    {
+      path: "/agents/:id",
+      name: "agentss",
+      component: Agentss,
+    },
+
     {
       path: "/about",
       name: "about",
@@ -30,20 +39,21 @@ const router = createRouter({
       component: Agents,
     },
     // {
-    //   path: "/agents:id",
-    //   name: "agent",
-    //   component: () => import("@/views/Agent.vue"),
+    //   path: "/agents/:id",
+    //   name: "AgentDetails",
+    //   component: "AgentDetails",
     // },
-    // {
-    //   path: "/blogs",
-    //   name: "blogs",
-    //   component: Blogs,
-    // },
-    // {
-    //   path: "/blogs:id",
-    //   name: "blog",
-    //   component: () => import("@/views/Blog.vue"),
-    // },
+
+    {
+      path: "/blogs",
+      name: "Blogs",
+      component: Blogs,
+    },
+    {
+      path: "/blogs/:id",
+      name: "BlogDetails",
+      component: BlogDetails,
+    },
   ],
 });
 

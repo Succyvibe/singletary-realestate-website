@@ -945,7 +945,13 @@
           </div>
         </div>
 
-        <button type="submit" @click="showAlert">Submit Application</button>
+        <button
+          type="submit"
+          @click="showAlert"
+          class="bg-green-800 px-4 py-2 rounded-lg"
+        >
+          Submit Application
+        </button>
       </form>
     </div>
   </div>
@@ -1008,7 +1014,8 @@ export default {
       const result = await response.json();
       if (result.success) {
         this.$swal("Submitted Successfully");
-        (this.name = ""),
+        (this.firstName = ""),
+          (this.lastName = ""),
           (this.email = ""),
           (this.phoneInput = ""),
           (this.country = ""),
