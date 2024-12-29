@@ -1,11 +1,19 @@
-import './assets/main.css'
+import "./assets/main.css";
 
-import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
+import { createApp } from "vue";
+import App from "./App.vue";
+import router from "./router";
+import VueSweetalert2 from "vue-sweetalert2";
+import "sweetalert2/dist/sweetalert2.min.css";
 
-const app = createApp(App)
+const app = createApp(App);
 
-app.use(router)
+const options = {
+  confirmButtonColor: "#41b882",
+  cancelButtonColor: "#ff7674",
+};
 
-app.mount('#app')
+app.use(router);
+app.use(VueSweetalert2, options);
+
+app.mount("#app");

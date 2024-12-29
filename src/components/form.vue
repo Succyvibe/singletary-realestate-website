@@ -1,12 +1,84 @@
+<script setup>
+import { ref } from "vue";
+const form = ref({
+  access_key: "6475cc8e-ac4e-48ee-982e-3fcd77dfb92f",
+  subject: "New Submission from Web3Forms",
+  firstName: "",
+  lastName: "",
+  email: "",
+  phoneInput: "",
+  ssn: "",
+  country: "",
+  streetAddress: "",
+  city: "",
+  region: "",
+  zipCode: "",
+  agentName: "",
+  landLordName: "",
+  others: "",
+  emergencyContact: "",
+  paymentMethod: "",
+});
+
+let result = ref("");
+let status = ref("");
+
+const submitForm = async () => {
+  result.value = "Please wait...";
+  try {
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: form.value,
+    });
+    console.log(response);
+    result.value = response.message;
+    if (response.status === 200) {
+      status.value = "success";
+    } else {
+      console.log(response);
+      status.value = "error";
+    }
+  } catch (error) {
+    console.log(error);
+    status.value = "error";
+    result.value = "Something went wrong";
+  } finally {
+    form.value.firstName = "";
+    form.value.lastName = "";
+    form.value.email = "";
+    form.value.phoneInput = "";
+    form.value.ssn = "";
+    form.value.country = "";
+    form.value.streetAddress = "";
+    form.value.city = "";
+    form.value.region = "";
+    form.value.zipCode = "";
+    form.value.agentName = "";
+    form.value.landLordName = "";
+    form.value.others = "";
+    form.value.emergencyContact = "";
+    form.value.paymentMethod = "";
+
+    setTimeout(() => {
+      result.value = "";
+      status.value = "";
+    }, 200);
+  }
+};
+</script>
+
 <template>
-  <div class="bg-black opacity-90 text-white">
+  <div class="bg-black opacity-90">
     <div class="w-[85%] lg:w-[75%] mx-auto pt-16 lg:pt-28 pb-16 text-center">
-      <div class="pt-20">
-        <h2 class="text-base/7 font-semibold mt-3">Application</h2>
-        <p class="mt-1 text-sm/">
+      <div class="">
+        <h2 class="text-base/7 font-semibold text-gray-900 mt-3">
+          Application
+        </h2>
+        <p class="mt-1 text-sm/6 text-gray-600">
           Use a permanent address where you can receive mail.
         </p>
-        <p class="mt-5">
+        <p class="">
           N/B There’s a compulsory refundable application fee of $200 which
           covers for tour expenses and it’s completely refundable whether you
           secure the apartment or not. Do not believe any agent/realtor who
@@ -14,6 +86,7 @@
           charge by Agents/Landlords in the course of this transaction
         </p>
       </div>
+
       <form @submit.prevent="submitForm">
         <div class="space-y-12">
           <div class="border-b border-gray-900/10 pb-12">
@@ -28,7 +101,6 @@
                   <input
                     type="text"
                     name="firstName"
-                    v-model="firstName"
                     id="firstName"
                     autocomplete="given-name"
                     required
@@ -36,6 +108,7 @@
                   />
                 </div>
               </div>
+
               <div class="sm:col-span-3">
                 <label
                   for="lastName"
@@ -46,9 +119,26 @@
                   <input
                     type="text"
                     name="lastName"
-                    v-model="lastName"
                     id="lastName"
-                    autocomplete="given-name"
+                    autocomplete="family-name"
+                    required
+                    class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                  />
+                </div>
+              </div>
+
+              <div class="sm:col-span-4">
+                <label
+                  for="email"
+                  class="block text-sm/6 font-medium text-gray-900"
+                  >Email address</label
+                >
+                <div class="mt-2">
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    autocomplete="email"
                     required
                     class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                   />
@@ -56,24 +146,6 @@
               </div>
 
               <div class="sm:col-span-3">
-                <label
-                  for="email"
-                  class="block text-sm/6 font-medium text-gray-900"
-                  >Your Email</label
-                >
-                <div class="mt-2">
-                  <input
-                    type="email"
-                    name="email"
-                    v-model="email"
-                    id="email"
-                    autocomplete="given-name"
-                    class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-                  />
-                </div>
-              </div>
-
-              <!-- <div class="sm:col-span-3">
                 <label
                   for="ssn"
                   class="block text-sm/6 font-medium text-gray-900"
@@ -84,14 +156,13 @@
                     type="text"
                     name="ssn"
                     id="ssn"
-                    v-model="ssn"
                     aria-describedby="helper-text-explanation"
                     class="block w-full rounded-md bg-white border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
                     placeholder="050–134"
                   />
                 </div>
-              </div> -->
+              </div>
               <div class="sm:col-span-3">
                 <label
                   for="phoneInput"
@@ -117,7 +188,6 @@
                   <input
                     type="text"
                     name="phoneInput"
-                    v-model="phoneInput"
                     id="phoneInput"
                     aria-describedby="helper-text-explanation"
                     class="block w-full rounded-md bg-white border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -127,6 +197,7 @@
                   />
                 </div>
               </div>
+
               <div class="sm:col-span-3">
                 <label
                   for="country"
@@ -137,7 +208,6 @@
                   <select
                     id="country"
                     name="country"
-                    v-model="country"
                     autocomplete="country-name"
                     class="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pl-3 pr-8 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                   >
@@ -789,7 +859,8 @@
                   </svg>
                 </div>
               </div>
-              <div class="sm:col-span-3">
+
+              <div class="col-span-full">
                 <label
                   for="streetAddress"
                   class="block text-sm/6 font-medium text-gray-900"
@@ -799,7 +870,6 @@
                   <input
                     type="text"
                     name="streetAddress"
-                    v-model="streetAddress"
                     id="streetAddress"
                     autocomplete="streetAddress"
                     class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
@@ -807,7 +877,7 @@
                 </div>
               </div>
 
-              <div class="sm:col-span-3">
+              <div class="sm:col-span-2 sm:col-start-1">
                 <label
                   for="city"
                   class="block text-sm/6 font-medium text-gray-900"
@@ -818,12 +888,46 @@
                     type="text"
                     name="city"
                     id="city"
-                    v-model="city"
                     autocomplete="address-level2"
                     class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                   />
                 </div>
               </div>
+
+              <div class="sm:col-span-2">
+                <label
+                  for="region"
+                  class="block text-sm/6 font-medium text-gray-900"
+                  >State / Province</label
+                >
+                <div class="mt-2">
+                  <input
+                    type="text"
+                    name="region"
+                    id="region"
+                    autocomplete="address-level1"
+                    class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                  />
+                </div>
+              </div>
+
+              <div class="sm:col-span-2">
+                <label
+                  for="zipCode"
+                  class="block text-sm/6 font-medium text-gray-900"
+                  >ZIP / Postal code</label
+                >
+                <div class="mt-2">
+                  <input
+                    type="text"
+                    name="zipCode"
+                    id="zipCode"
+                    autocomplete="zipCode"
+                    class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                  />
+                </div>
+              </div>
+
               <div class="sm:col-span-3">
                 <label
                   for="agentName"
@@ -835,7 +939,6 @@
                     type="text"
                     name="agentName"
                     id="agentName"
-                    v-model="agentName"
                     autocomplete=""
                     required
                     class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
@@ -853,15 +956,13 @@
                     type="text"
                     name="landlordName"
                     id="landlordName"
-                    v-model="landlordName"
                     autocomplete=""
                     required
                     class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                   />
                 </div>
               </div>
-
-              <div class="sm:col-span-full">
+              <div class="sm:col-span-3">
                 <label
                   for="others"
                   class="block text-sm/6 font-medium text-gray-900"
@@ -874,161 +975,84 @@
                     name="others"
                     id="others"
                     autocomplete=""
-                    v-model="others"
                     class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                   />
-                </div>
-              </div>
-              <div class="sm:col-span-3 mt-4">
-                <label
-                  for="emergencyContact"
-                  class="block text-sm/6 font-medium text-gray-900"
-                  >Emergency Contact:</label
-                >
-                <div class="mt-2 relative">
-                  <div
-                    class="absolute inset-y-0 start-0 top-0 flex items-center ps-3.5 pointer-events-none"
-                  >
-                    <svg
-                      class="w-4 h-4 text-gray-500 dark:text-gray-400"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="currentColor"
-                      viewBox="0 0 19 18"
+
+                  <div class="sm:col-span-3 mt-4">
+                    <label
+                      for="emergencyContact"
+                      class="block text-sm/6 font-medium text-gray-900"
+                      >Emergency Contact:</label
                     >
-                      <path
-                        d="M18 13.446a3.02 3.02 0 0 0-.946-1.985l-1.4-1.4a3.054 3.054 0 0 0-4.218 0l-.7.7a.983.983 0 0 1-1.39 0l-2.1-2.1a.983.983 0 0 1 0-1.389l.7-.7a2.98 2.98 0 0 0 0-4.217l-1.4-1.4a2.824 2.824 0 0 0-4.218 0c-3.619 3.619-3 8.229 1.752 12.979C6.785 16.639 9.45 18 11.912 18a7.175 7.175 0 0 0 5.139-2.325A2.9 2.9 0 0 0 18 13.446Z"
+                    <div class="mt-2 relative">
+                      <div
+                        class="absolute inset-y-0 start-0 top-0 flex items-center ps-3.5 pointer-events-none"
+                      >
+                        <svg
+                          class="w-4 h-4 text-gray-500 dark:text-gray-400"
+                          aria-hidden="true"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="currentColor"
+                          viewBox="0 0 19 18"
+                        >
+                          <path
+                            d="M18 13.446a3.02 3.02 0 0 0-.946-1.985l-1.4-1.4a3.054 3.054 0 0 0-4.218 0l-.7.7a.983.983 0 0 1-1.39 0l-2.1-2.1a.983.983 0 0 1 0-1.389l.7-.7a2.98 2.98 0 0 0 0-4.217l-1.4-1.4a2.824 2.824 0 0 0-4.218 0c-3.619 3.619-3 8.229 1.752 12.979C6.785 16.639 9.45 18 11.912 18a7.175 7.175 0 0 0 5.139-2.325A2.9 2.9 0 0 0 18 13.446Z"
+                          />
+                        </svg>
+                      </div>
+                      <input
+                        type="text"
+                        name="emergencyContact"
+                        id="emergencyContact"
+                        aria-describedby="helper-text-explanation"
+                        class="block w-full rounded-md bg-white border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                        placeholder="123-456-7890"
+                        required
                       />
-                    </svg>
+                    </div>
                   </div>
-                  <input
-                    type="text"
-                    name="emergencyContact"
-                    id="emergencyContact"
-                    v-model="emergencyContact"
-                    aria-describedby="helper-text-explanation"
-                    class="block w-full rounded-md bg-white border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                    placeholder="123-456-7890"
-                    required
-                  />
+
+                  <div class="sm:col-span-3 mt-10">
+                    <label
+                      for="paymentMethod"
+                      class="block text-sm/6 font-medium text-gray-900"
+                      >Payment Method</label
+                    >
+                    <select
+                      id="paymentMethod"
+                      name="paymentMethod"
+                      autocomplete="paymentMethod"
+                      class="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pl-3 pr-8 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                    >
+                      <option value="zelle">Zelle</option>
+                      <option value="cashapp">Cashapp</option>
+                      <option value="Apple Pay">Apple Pay</option>
+                      <option value="Crypto">Crypto</option>
+                      <option value="Chime">Chime</option>
+                    </select>
+                  </div>
                 </div>
               </div>
-              <div class="sm:col-span-3 mt-10">
-                <label
-                  for="paymentMethod"
-                  class="block text-sm/6 font-medium text-gray-900"
-                  >Payment Method</label
-                >
-                <select
-                  id="paymentMethod"
-                  name="paymentMethod"
-                  v-model="paymentMethod"
-                  autocomplete="paymentMethod"
-                  class="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pl-3 pr-8 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-                >
-                  <option value="zelle">Zelle</option>
-                  <option value="cashapp">Cashapp</option>
-                  <option value="Apple Pay">Apple Pay</option>
-                  <option value="Crypto">Crypto</option>
-                  <option value="Chime">Chime</option>
-                </select>
-              </div>
-              <!-- Honeypot Spam Protection -->
-              <input
-                type="checkbox"
-                name="botcheck"
-                class="hidden"
-                style="display: none"
-              />
             </div>
           </div>
         </div>
 
-        <button type="submit" @click="showAlert">Submit Application</button>
+        <div class="my-10 flex items-center justify-center gap-x-6">
+          <button
+            type="submit"
+            class="rounded-md bg-indigo-600 px-16 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          >
+            Submit
+          </button>
+        </div>
       </form>
     </div>
   </div>
 </template>
 
 <script>
-const WEB3FORMS_ACCESS_KEY = "6475cc8e-ac4e-48ee-982e-3fcd77dfb92f";
-
-export default {
-  data() {
-    return {
-      name: "",
-      email: "",
-      message: "",
-      phoneInput: "",
-      country: "",
-      streetAddress: "",
-      city: "",
-      region: "",
-      zipCode: "",
-      agentName: "",
-      landlordName: "",
-      others: "",
-      emergencyContact: "",
-      paymentMethod: "",
-    };
-  },
-
-  // methods: {
-  //   showAlert() {
-  //     // Use sweetalert2
-  //     this.$swal("Hello Vue world!!!");
-  //   },
-  // },
-  methods: {
-    async submitForm() {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          access_key: WEB3FORMS_ACCESS_KEY,
-          name: this.name,
-          email: this.email,
-          phoneInput: this.phoneInput,
-          country: this.country,
-          streetAddress: this.streetAddress,
-          city: this.city,
-          region: this.region,
-          zipCode: this.zipCode,
-          agentName: this.agentName,
-          landlordName: this.landlordName,
-          others: this.others,
-          emergencyContact: this.emergencyContact,
-          paymentMethod: this.paymentMethod,
-        }),
-      });
-      const result = await response.json();
-      if (result.success) {
-        this.$swal("Submitted Successfully");
-        (this.name = ""),
-          (this.email = ""),
-          (this.phoneInput = ""),
-          (this.country = ""),
-          (this.streetAddress = ""),
-          (this.city = ""),
-          (this.region = ""),
-          (this.zipCode = ""),
-          (this.agentName = ""),
-          (this.landlordName = ""),
-          (this.others = ""),
-          (this.emergencyContact = ""),
-          (this.paymentMethod = "");
-      }
-    },
-  },
-};
+export default {};
 </script>
 
-<style scoped>
-label {
-  color: white;
-}
-</style>
+<style></style>

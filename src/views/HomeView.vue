@@ -20,7 +20,7 @@ const image =
           <div>
             <div class="flex flex-col gap-4 text-white pt-20">
               <h3 class="italic text-xl relative">
-                Welcome to Sky Homes Group
+                Welcome to Skyline Homes Group
                 <!-- <span class="absolute -top-2 right-0"
                   ><i class="fa-regular fa-registered text-white font-bold"></i
                 ></span> -->
@@ -260,7 +260,7 @@ const image =
                 to="/application"
                 class="bg-white rounded-full px-10 py-3 text-black text-center"
               >
-                Become a Singletary Agent
+                Become a Skyline Agent
               </RouterLink>
             </div>
             <!-- <div>

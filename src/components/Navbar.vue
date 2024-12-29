@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import { RouterLink } from "vue-router";
 import Button from "./Button.vue";
+import logoo from "@/assets/logoo.png";
 
 const images = [
   {
@@ -55,7 +56,13 @@ document.addEventListener("scroll", function () {
             class="text-lg italic lg:text-2xl font-bold"
             :class="{ 'text-white': !showWhiteBackground }"
           >
-            SKY__HOMES__GROUP
+            <img
+              src="/src/assets/logoo.png"
+              alt=""
+              width="50"
+              height="50"
+              class="rounded-full"
+            />
           </RouterLink>
         </div>
 
@@ -108,6 +115,17 @@ document.addEventListener("scroll", function () {
             <RouterLink class="hover:border-b-2" to="/agents"
               >Sky Homes Agents</RouterLink
             >
+          </li>
+          <li class="mt-10" @click="MenuOpen()">
+            <RouterLink class="hover:border-b-2" to="/contact"
+              >Contact</RouterLink
+            >
+          </li>
+          <li class="mt-10" @click="MenuOpen()">
+            <RouterLink class="hover:border-b-2" to="/blogs">Blogs</RouterLink>
+          </li>
+          <li class="mt-10" @click="MenuOpen()">
+            <RouterLink class="hover:border-b-2" to="/blog">blog</RouterLink>
           </li>
 
           <div class="absolute bottom-4 left-0 w-full px-4">
