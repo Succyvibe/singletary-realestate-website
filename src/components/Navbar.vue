@@ -83,7 +83,7 @@ document.addEventListener("scroll", function () {
           </li>
           <li>
             <RouterLink class="hover:border-b-2" to="/agents"
-              >Sky Homes Agents</RouterLink
+              >Skyline Agents</RouterLink
             >
           </li>
           <li>
@@ -116,7 +116,7 @@ document.addEventListener("scroll", function () {
           </li>
           <li class="mt-10" @click="MenuOpen()">
             <RouterLink class="hover:border-b-2" to="/agents"
-              >Sky Homes Agents</RouterLink
+              >Skyline Agents</RouterLink
             >
           </li>
           <li class="mt-10" @click="MenuOpen()">
@@ -136,7 +136,7 @@ document.addEventListener("scroll", function () {
               to="/application"
               class="w-full bg-white rounded-full lg:px-10 px-20 py-3 text-black"
             >
-              Apply
+              Contact
             </RouterLink>
           </div>
         </ul>

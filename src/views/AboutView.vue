@@ -3,7 +3,7 @@ import heroImage from "@/assets/images/heroImage.jpg";
 </script>
 
 <template>
-  <div class="pt-20 bg-[#777]">
+  <div class="pt-20 bg-black opacity-90 text-white">
     <div class="w-[85%] lg:w-[75%] mx-auto py-16">
       <div class="text-center">
         <h3 class="text-4xl mb-10">About Us</h3>

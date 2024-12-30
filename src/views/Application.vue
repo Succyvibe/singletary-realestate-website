@@ -1,6 +1,10 @@
 <template>
-  <div class="bg-black opacity-90 text-white">
-    <div class="w-[85%] lg:w-[75%] mx-auto pt-16 lg:pt-28 pb-16 text-center">
+  <div
+    class="min-h-[100vh] relative py-12 bg-[url('https://images.unsplash.com/photo-1650954316166-c3361fefcc87?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmxhY2t8ZW58MHx8MHx8fDA%3D')] bg-cover bg-center bg-no-repeat"
+  >
+    <div
+      class="w-[85%] lg:w-[75%] mx-auto pt-16 lg:pt-28 pb-16 text-center text-white"
+    >
       <div class="pt-20">
         <h2 class="text-base/7 font-semibold mt-3">Application</h2>
         <p class="mt-1 text-sm/">
@@ -860,26 +864,7 @@
                   />
                 </div>
               </div>
-
-              <div class="sm:col-span-full">
-                <label
-                  for="others"
-                  class="block text-sm/6 font-medium text-gray-900"
-                  >Names Of Other Persons To Occupy The Apartment ( state
-                  relationship with the persons )</label
-                >
-                <div class="mt-2">
-                  <textarea
-                    type="text"
-                    name="others"
-                    id="others"
-                    autocomplete=""
-                    v-model="others"
-                    class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-                  />
-                </div>
-              </div>
-              <div class="sm:col-span-3 mt-4">
+              <div class="sm:col-span-3">
                 <label
                   for="emergencyContact"
                   class="block text-sm/6 font-medium text-gray-900"
@@ -914,7 +899,27 @@
                   />
                 </div>
               </div>
-              <div class="sm:col-span-3 mt-10">
+
+              <div class="sm:col-span-full">
+                <label
+                  for="others"
+                  class="block text-sm/6 font-medium text-gray-900"
+                  >Names Of Other Persons To Occupy The Apartment ( state
+                  relationship with the persons )</label
+                >
+                <div class="mt-2">
+                  <textarea
+                    type="text"
+                    name="others"
+                    id="others"
+                    autocomplete=""
+                    v-model="others"
+                    class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                  />
+                </div>
+              </div>
+
+              <div class="sm:col-span-full mt-4">
                 <label
                   for="paymentMethod"
                   class="block text-sm/6 font-medium text-gray-900"
@@ -948,7 +953,7 @@
         <button
           type="submit"
           @click="showAlert"
-          class="bg-green-800 px-4 py-2 rounded-lg"
+          class="bg-green-800 px-4 py-2 rounded-lg w-full"
         >
           Submit Application
         </button>

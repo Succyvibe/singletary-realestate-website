@@ -1,5 +1,5 @@
 <template>
   <div>
-    <button class="bg-white rounded-full px-10 py-3 text-black">Apply</button>
+    <button class="bg-white rounded-full px-8 py-2 text-black">Contact</button>
   </div>
 </template>

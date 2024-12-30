@@ -7,7 +7,7 @@ import donnell from "@/assets/images/donnell.jpg";
 </script>
 
 <template>
-  <div class="py-20">
+  <div class="py-20 bg-black opacity-90 text-white">
     <div class="w-[80%] mx-auto">
       <div class="text-center w-full pb-10">
         <h3 class="text-3xl py-4">Agent listing</h3>

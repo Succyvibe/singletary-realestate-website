@@ -325,9 +325,8 @@ const image =
                     <p class="text-gray-500 font-bold">SKYLINE</p>
                     <h3 class="text-blue-300 font-bold text-2xl">Covered</h3>
                     <p class="mt-8 text-sm lg:text-md">
-                      Helping buyers stand out in competitive housing markets by
-                      providing faster loan approval and stronger purchase
-                      offer.
+                      We work with several leading insurance companies to secure
+                      affordable coverage that meets your needs.
                     </p>
                   </div>
                 </div>
@@ -364,11 +363,6 @@ const image =
                 Download the App
               </a>
             </div>
-            <!-- <div>
-            <div class="rounded-2xl">
-              <img :src="ideas" alt="" class="w-full rounded-2xl" />
-            </div>
-          </div> -->
           </div>
         </div>
       </div>
